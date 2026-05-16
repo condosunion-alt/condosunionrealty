@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Broker Portal - Condos Union Realty</title>
+<style>
+* { margin:0; padding:0; box-sizing: border-box; }
+body { font-family:'Segoe UI',Arial,sans-serif; background:#f5f5f5; }
+.header { background:linear-gradient(135deg,#1a1a2e,#16213e); color:white; padding:18px 30px; display:flex; justify-content:space-between; align-items:center; }
+.header .user { font-size:0.9em; }
+.header a { color:rgba(255,255,255,0.8); text-decoration:none; font-size:0.9em; }
+.broker-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(350px,1fr)); gap:20px; max-width:1200px; margin:20px auto; padding:0 20px; }
+.broker-card { background:white; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+.broker-card .card-header { background:linear-gradient(135deg,#667eea,#764ba2); color:white; padding:18px 22px; }
+.broker-card .card-body { padding:20px; }
+.broker-card .price { color:#e74c3c; font-size:1.3em; font-weight:bold; }
+.broker-card .broker-info { background:#fff9e6; padding:12px; border-radius:8px; margin-top:12px; font-size:0.85em; }
+.broker-card .broker-info strong { color:#d35400; }
+.portal-btn { display:block; width:100%; padding:10px; background:linear-gradient(135deg,#667eea,#764ba2); color:white; border:none; border-radius:8px; margin-top:12px; cursor:pointer; font-weight:bold; text-align:center; text-decoration:none; }
+</style>
+</head><body>
+<div class="header">
+  <h1>📋 Broker Portal</h1>
+  <div class="user">👤 <span id="brokerName">Broker</span> | <a href="#" onclick="logout()">Logout</a></div>
+</div>
+<div class="broker-grid">
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Urban Towns - Oshawa North</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Townhill Homes | Oshawa, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $399,900</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1200-1800 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% in 30 days, 5% in 90 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.35/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=urban-towns-oshawa-north" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>The Conservancy - Barrhaven</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Caivan Communities | Ottawa, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $354,342</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condo/Townhome | 2-4 Bedrooms | 2-3 Bathrooms | 1100-2000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, balance on occupancy</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.42/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=conservancy-barrhaven" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>New Seaton - Pickering</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Towerhill Homes | Pickering, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $450,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Detached & Townhomes | 3-4 Bedrooms | 2.5-3.5 Bathrooms | 1500-2500 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% in total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=new-seaton-pickering" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Triple Crown Estates</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Remington Homes | Markham, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $800,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Detached Homes | 4-5 Bedrooms | 3-4 Bathrooms | 2000-3500 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% on signing, 5% in 6 months</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=triple-crown-estates" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Aura - Lakeview Village</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Caivan Communities | Mississauga, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">Towns from High $500s</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Waterfront Townhomes | 2-3 Bedrooms | 2-2.5 Bathrooms | 1000-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, 5% in 120 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.38/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=aura-lakeview-village" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Glenway Townhomes</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Andrin Homes | Oakville, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $550,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1700 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, balance on occupancy</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.40/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=glenway-townhomes" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>WestHaven - Whitby</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Andrin Homes | Whitby, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $480,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, 5% in 90 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.37/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=westhaven-whitby" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>King Terraces - King City</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fieldgate Homes | King City, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $700,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Townhomes | 3-4 Bedrooms | 2.5-3.5 Bathrooms | 1600-2400 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.35/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=king-terraces-king-city" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Gold Park Homes - Vaughan</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fieldgate Homes | Vaughan, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From Low $2Ms</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Detached Homes | 4-5 Bedrooms | 3-4 Bathrooms | 2500-4000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% on signing, 5% in 6 months</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=gold-park-homes-vaughan" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>LIVE/WORK Townhome - Port Credit</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Remington Homes | Mississauga, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $650,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Live/Work Townhome | 2-3 Bedrooms + Office | 2.5-3.5 Bathrooms | 1400-2200 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.32/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=live-work-townhome-port-credit" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Midhurst Valley - Near Barrie</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Brookfield Residential | Barrie, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From High $600s</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Detached & Townhomes | 3-4 Bedrooms | 2.5-3.5 Bathrooms | 1500-2800 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, 5% in 90 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=midhurst-valley-barrie" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Eclipse - Downtown Toronto</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $750,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-900 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.65/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=eclipse-downtown-toronto" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>The Bentley Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Lantera | North York, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $580,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-3 Bedrooms | 1-2 Bathrooms | 500-1100 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.58/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=bentley-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Vaughan Metropolitan</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Menkes Developments | Vaughan, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $620,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.55/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=vaughan-metropolitan" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Parkside Towns - Aurora</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Brookfield Residential | Aurora, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $520,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1700 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, 5% in 90 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.35/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=parkside-towns-aurora" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Richmond Green Estates</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Greenpark Group | Richmond Hill, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $1.2M</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Detached Homes | 4-5 Bedrooms | 3-4 Bathrooms | 2200-3800 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% on signing, 5% in 6 months</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=richmond-green-estates" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Water's Edge - Oshawa</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Townhill Homes | Oshawa, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $420,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Waterfront Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, balance on occupancy</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.36/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=waters-edge-oshawa" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>The Ivy - Mississauga</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fernbrook Homes | Mississauga, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $480,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condo Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1000-1500 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, 5% in 90 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.42/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=the-ivy-mississauga" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Union Station Condos</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Diamond Corp | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $680,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-900 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.60/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=union-station-condos" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Maple Ridge - Maple</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fieldgate Homes | Maple, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $380,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, balance on occupancy</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.38/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=maple-ridge-maple" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Burlington Heights</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Caivan Communities | Burlington, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $560,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome & Condo | 2-3 Bedrooms | 2-2.5 Bathrooms | 1000-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, 5% in 90 days</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.40/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=burlington-heights" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Scarborough Junction</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Remington Homes | Scarborough, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $440,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1700 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.34/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=scarborough-junction" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Forest Hill Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Forest Hill, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $850,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Condominium | 2-3 Bedrooms | 2-2.5 Bathrooms | 900-1400 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.62/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=forest-hill-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Niagara Escarpment Homes</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Brookfield Residential | Hamilton, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $720,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Detached & Townhomes | 3-4 Bedrooms | 2.5-3.5 Bathrooms | 1500-2600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=niagara-escarpment-homes" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Queens Quay Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Tridel | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $550,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Waterfront Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.68/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=queens-quay-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Yorkville Plaza</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $900,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Condominium | 1-3 Bedrooms | 1-2 Bathrooms | 600-1300 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.72/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=yorkville-plaza" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Danforth Village Towns</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Townhill Homes | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $499,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.36/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=danforth-village-towns" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Etobicoke Grand Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Menkes Developments | Etobicoke, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $650,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-3 Bedrooms | 1-2 Bathrooms | 600-1200 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.56/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=etobicoke-grand-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Oakville Shores</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Andrin Homes | Oakville, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $780,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Townhome | 3-4 Bedrooms | 2.5-3.5 Bathrooms | 1500-2200 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.39/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=oakville-shores" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Brampton West Towns</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fieldgate Homes | Brampton, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $420,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 5% on signing, balance on occupancy</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.37/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=brampton-west-towns" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Mississauga City Centre</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fernbrook Homes | Mississauga, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $500,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.52/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=mississauga-city-centre" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>North York Centre</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Lantera | North York, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $600,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.54/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=north-york-centre" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Richmond Hill Premium</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Greenpark Group | Richmond Hill, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $1.1M</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Detached | 4-5 Bedrooms | 3-4 Bathrooms | 2100-3600 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% on signing, 5% in 6 months</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: N/A - Freehold</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=richmond-hill-premium" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Markham Gateway</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Remington Homes | Markham, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $550,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Townhome | 2-3 Bedrooms | 2-2.5 Bathrooms | 1100-1700 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 10% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.36/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=markham-gateway" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Vaughan Mills Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Menkes Developments | Vaughan, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $480,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.52/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=vaughan-mills-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Scarborough Bluffs</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Scarborough, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $520,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-900 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.50/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=scarborough-bluffs" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Downtown Core 2BR</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Tridel | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $700,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 2 Bedrooms | 2 Bathrooms | 700-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.64/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=downtown-core-2br" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Yonge & Eglinton</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Diamond Corp | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $580,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.58/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=yonge-eglinton" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Eglinton West Condos</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $490,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-900 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.55/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=eglinton-west-condos" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Leslieville Lofts</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fernbrook Homes | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $560,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Loft-style Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.57/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=leslieville-lofts" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Distillery District</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Tridel | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $620,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.60/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=distillery-district" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Liberty Village</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Menkes Developments | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $540,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.56/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=liberty-village" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>King West Condos</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $600,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.62/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=king-west-condos" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Queen Street West</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Diamond Corp | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $520,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-900 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.59/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=queen-street-west" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Bay Street Condos</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Lantera | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $750,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Condominium | 1-3 Bedrooms | 1-2 Bathrooms | 600-1200 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.66/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=bay-street-condos" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Financial District</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Tridel | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $680,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.64/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=financial-district" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Harbourfront Condos</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Menkes Developments | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $580,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Waterfront Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.62/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=harbourfront-condos" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>The Annex Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Great Gulf | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $720,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Luxury Condominium | 1-3 Bedrooms | 1-2 Bathrooms | 600-1300 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.65/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=the-annex-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>St. Clair West Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Fernbrook Homes | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $510,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-950 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.54/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=st-clair-west-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+  <div class="broker-card">
+    <div class="card-header">
+      <h3>Davisville Residences</h3>
+      <div style="opacity:0.8;font-size:0.85em;">Lantera | Toronto, ON</div>
+    </div>
+    <div class="card-body">
+      <div class="price">From $560,000</div>
+      <div style="font-size:0.85em;color:#666;margin:8px 0;">Condominium | 1-2 Bedrooms | 1-2 Bathrooms | 500-1000 sqft</div>
+      <div style="font-size:0.85em;color:#666;">Deposit: 20% total, structured</div>
+      <div style="font-size:0.85em;color:#666;">Maintenance: Approx. $0.56/sqft</div>
+      <div class="broker-info">
+        <strong>🔐 Broker Info (Login Required):</strong><br>
+        Commission: <span style="color:#e74c3c;">Contact for details</span><br>
+        Broker Portal: Pending - contact us
+      </div>
+      <a href="project-detail.html?id=davisville-residences" class="portal-btn">View Full Details →</a>
+    </div>
+  </div>
+</div>
+<script>
+  var user = JSON.parse(localStorage.getItem('cur_loggedin')||'null');
+  if (!user || user.type!=='broker') { document.body.innerHTML='<div style="text-align:center;padding:80px;"><h2>🔒 Broker Login Required</h2><p>Please login as a broker to access this page.</p><a href="portal.html" style="color:#667eea;">Go to Login →</a></div>'; }
+  else { document.getElementById('brokerName').textContent = user.name; }
+  function logout() { localStorage.removeItem('cur_loggedin'); location.reload(); }
+</script>
+</body></html>
