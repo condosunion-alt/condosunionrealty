@@ -4,589 +4,1241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platinum Projects - Condos Union Realty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #333; }
-        .header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 40px 20px; text-align: center; }
-        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
-        .platinum-badge { background: linear-gradient(135deg, #ffd700, #ff8c00); color: #1a1a2e; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; display: inline-block; margin-bottom: 15px; }
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; margin-top: 30px; }
-        .project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-        .project-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .project-image { width: 100%; height: 220px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1em; }
-        .project-content { padding: 20px; }
-        .project-title { font-size: 1.3em; font-weight: bold; margin-bottom: 10px; color: #1a1a2e; }
-        .price { color: #e74c3c; font-size: 1.4em; font-weight: bold; margin: 10px 0; }
-        .project-detail { margin: 8px 0; font-size: 0.95em; }
-        .project-detail strong { color: #555; }
-        .contact-btn { display: block; width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 8px; font-size: 1em; cursor: pointer; margin-top: 15px; text-align: center; text-decoration: none; }
-        .contact-btn:hover { opacity: 0.9; }
+        body { font-family: 'DM Sans', Arial, sans-serif; background: #f8f9fc; color: #1a1a2e; }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(201,169,98,0.1) 0%, transparent 50%);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(3%, 2%); }
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .platinum-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a1a2e;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, #e8d5a3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 8px;
+        }
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .hero .stat {
+            text-align: center;
+        }
+        .hero .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #c9a962;
+        }
+        .hero .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            border-color: #c9a962;
+            background: linear-gradient(135deg, #c9a962, #e8d5a3);
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+        
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Project Card */
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        /* Card Image */
+        .card-image {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: brightness(0.9);
+            z-index: 0;
+        }
+        .card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+            z-index: 1;
+        }
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.95);
+            color: #1a1a2e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .card-location {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 0.85rem;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Card Content */
+        .card-content {
+            padding: 24px;
+        }
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .card-developer {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c9a962, #e8d5a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .card-feature {
+            background: #f5f5f5;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        .card-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .card-btn:hover {
+            background: linear-gradient(135deg, #c9a962, #e8d5a3);
+            color: #1a1a2e;
+            transform: scale(1.02);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #c9a962;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .project-grid { grid-template-columns: 1fr; }
-            .header h1 { font-size: 1.8em; }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>🔥 Platinum Projects</h1>
-        <p>Exclusive Pre-Construction Opportunities | Condos Union Realty</p>
-        <p style="margin-top:10px;font-size:0.9em;">50 Selected Premium Projects | Updated: May 16, 2026</p>
-    </div>
-    <div class="container">
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #667eea,#764ba2)">🏙️ Urban Towns - Oshawa North</div>
-                <div class="project-content">
-                    <div class="platinum-badge">🔥 PLATINUM LAUNCH</div>
-                    <div class="project-title">Urban Towns - Oshawa North</div>
-                    <div class="price">From $399,900</div>
-                    <div class="project-detail"><strong>Developer:</strong> Townhill Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Oshawa</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Get VIP Access</a>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="platinum-badge">🔥 PLATINUM COLLECTION</div>
+            <h1>50 Premium Pre-Construction Projects</h1>
+            <p>Exclusive GTA &amp; Surrounding Areas Real Estate Opportunities</p>
+            <p>Curated by Condos Union Realty</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">50</div>
+                    <div class="stat-label">Projects</div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #f093fb,#f5576c)">🏙️ The Conservancy - Barrhaven</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">The Conservancy - Barrhaven</div>
-                    <div class="price">From $354,342</div>
-                    <div class="project-detail"><strong>Developer:</strong> Caivan Communities</div>
-                    <div class="project-detail"><strong>Location:</strong> Ottawa</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
+                <div class="stat">
+                    <div class="stat-number">GTA+</div>
+                    <div class="stat-label">Coverage</div>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #4facfe,#00f2fe)">🏙️ New Seaton - Pickering</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">New Seaton - Pickering</div>
-                    <div class="price">From $450,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Towerhill Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Pickering</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #43e97b,#38f9d7)">🏙️ Triple Crown Estates</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Triple Crown Estates</div>
-                    <div class="price">From $800,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Remington Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Markham</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #fa709a,#fee140)">🏙️ Aura - Lakeview Village</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Aura - Lakeview Village</div>
-                    <div class="price">Towns from High $500s</div>
-                    <div class="project-detail"><strong>Developer:</strong> Caivan Communities</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a18cd1,#fbc2eb)">🏙️ Glenway Townhomes</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Glenway Townhomes</div>
-                    <div class="price">From $550,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Andrin Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Oakville</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ffecd2,#fcb69f)">🏙️ WestHaven - Whitby</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">WestHaven - Whitby</div>
-                    <div class="price">From $480,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Andrin Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Whitby</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ff9a9e,#fecfef)">🏙️ King Terraces - King City</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">King Terraces - King City</div>
-                    <div class="price">From $700,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fieldgate Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> King City</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a1c4fd,#c2e9fb)">🏙️ Gold Park Homes - Vaughan</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Gold Park Homes - Vaughan</div>
-                    <div class="price">From Low $2Ms</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fieldgate Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Vaughan</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #d4fc79,#96e6a1)">🏙️ LIVE/WORK Townhome - Port Credit</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">LIVE/WORK Townhome - Port Credit</div>
-                    <div class="price">From $650,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Remington Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #667eea,#764ba2)">🏙️ Midhurst Valley - Near Barrie</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Midhurst Valley - Near Barrie</div>
-                    <div class="price">From High $600s</div>
-                    <div class="project-detail"><strong>Developer:</strong> Brookfield Residential</div>
-                    <div class="project-detail"><strong>Location:</strong> Barrie</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #f093fb,#f5576c)">🏙️ Eclipse - Downtown Toronto</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Eclipse - Downtown Toronto</div>
-                    <div class="price">From $750,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Great Gulf</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #4facfe,#00f2fe)">🏙️ The Bentley Residences</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">The Bentley Residences</div>
-                    <div class="price">From $580,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Lantera</div>
-                    <div class="project-detail"><strong>Location:</strong> North York</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #43e97b,#38f9d7)">🏙️ Vaughan Metropolitan</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Vaughan Metropolitan</div>
-                    <div class="price">From $620,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Menkes Developments</div>
-                    <div class="project-detail"><strong>Location:</strong> Vaughan</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #fa709a,#fee140)">🏙️ Parkside Towns - Aurora</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Parkside Towns - Aurora</div>
-                    <div class="price">From $520,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Brookfield Residential</div>
-                    <div class="project-detail"><strong>Location:</strong> Aurora</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a18cd1,#fbc2eb)">🏙️ Richmond Green Estates</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Richmond Green Estates</div>
-                    <div class="price">From $1.2M</div>
-                    <div class="project-detail"><strong>Developer:</strong> Greenpark Group</div>
-                    <div class="project-detail"><strong>Location:</strong> Richmond Hill</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ffecd2,#fcb69f)">🏙️ Water's Edge - Oshawa</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Water's Edge - Oshawa</div>
-                    <div class="price">From $420,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Townhill Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Oshawa</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ff9a9e,#fecfef)">🏙️ The Ivy - Mississauga</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">The Ivy - Mississauga</div>
-                    <div class="price">From $480,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fernbrook Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a1c4fd,#c2e9fb)">🏙️ Union Station Condos</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Union Station Condos</div>
-                    <div class="price">From $680,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Diamond Corp</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #d4fc79,#96e6a1)">🏙️ Maple Ridge - Maple</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Maple Ridge - Maple</div>
-                    <div class="price">From $380,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fieldgate Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Maple</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #667eea,#764ba2)">🏙️ Burlington Heights</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Burlington Heights</div>
-                    <div class="price">From $560,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Caivan Communities</div>
-                    <div class="project-detail"><strong>Location:</strong> Burlington</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #f093fb,#f5576c)">🏙️ Scarborough Junction</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Scarborough Junction</div>
-                    <div class="price">From $440,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Remington Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Scarborough</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #4facfe,#00f2fe)">🏙️ Forest Hill Residences</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Forest Hill Residences</div>
-                    <div class="price">From $850,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Great Gulf</div>
-                    <div class="project-detail"><strong>Location:</strong> Forest Hill</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #43e97b,#38f9d7)">🏙️ Niagara Escarpent Homes</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Niagara Escarpent Homes</div>
-                    <div class="price">From $720,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Brookfield Residential</div>
-                    <div class="project-detail"><strong>Location:</strong> Hamilto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #fa709a,#fee140)">🏙️ Durham Live - Whitby</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Durham Live - Whitby</div>
-                    <div class="price">From $410,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Towerhill Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Whitby</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a18cd1,#fbc2eb)">🏙️ Yorkville Plaza</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Yorkville Plaza</div>
-                    <div class="price">From $950,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Menkes Developments</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ffecd2,#fcb69f)">🏙️ Mississauga City Centre 2</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Mississauga City Centre 2</div>
-                    <div class="price">From $510,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fernbrook Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ff9a9e,#fecfef)">🏙️ Oakville Waterfront</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Oakville Waterfront</div>
-                    <div class="price">From $780,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Andrin Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Oakville</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a1c4fd,#c2e9fb)">🏙️ Brampton West End</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Brampton West End</div>
-                    <div class="price">From $390,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Greenpark Group</div>
-                    <div class="project-detail"><strong>Location:</strong> Brampton</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #d4fc79,#96e6a1)">🏙️ Newmarket Heights</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Newmarket Heights</div>
-                    <div class="price">From $460,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fieldgate Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Newmarket</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #667eea,#764ba2)">🏙️ Etobicoke Sky</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Etobicoke Sky</div>
-                    <div class="price">From $550,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Lantera</div>
-                    <div class="project-detail"><strong>Location:</strong> Etobicoke</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #f093fb,#f5576c)">🏙️ Distillery District Lofts</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Distillery District Lofts</div>
-                    <div class="price">From $720,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Great Gulf</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #4facfe,#00f2fe)">🏙️ Casa Condos - Vaughan</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Casa Condos - Vaughan</div>
-                    <div class="price">From $590,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Menkes Developments</div>
-                    <div class="project-detail"><strong>Location:</strong> Vaughan</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #43e97b,#38f9d7)">🏙️ Pinnacle Centre - Markham</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Pinnacle Centre - Markham</div>
-                    <div class="price">From $610,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Greenpark Group</div>
-                    <div class="project-detail"><strong>Location:</strong> Markham</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #fa709a,#fee140)">🏙️ Lakeshore Vista - Mississauga</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Lakeshore Vista - Mississauga</div>
-                    <div class="price">From $530,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fernbrook Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a18cd1,#fbc2eb)">🏙️ Hidden Trail - Barrie</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Hidden Trail - Barrie</div>
-                    <div class="price">From $440,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Brookfield Residential</div>
-                    <div class="project-detail"><strong>Location:</strong> Barrie</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ffecd2,#fcb69f)">🏙️ Mount Pleasant Village</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Mount Pleasant Village</div>
-                    <div class="price">From $680,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Diamond Corp</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ff9a9e,#fecfef)">🏙️ Bronte Harbour - Oakville</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Bronte Harbour - Oakville</div>
-                    <div class="price">From $760,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Andrin Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Oakville</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a1c4fd,#c2e9fb)">🏙️ Heart of York Condo</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Heart of York Condo</div>
-                    <div class="price">From $520,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Great Gulf</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #d4fc79,#96e6a1)">🏙️ Highland Heights - Richmond Hill</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Highland Heights - Richmond Hill</div>
-                    <div class="price">From $640,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Greenpark Group</div>
-                    <div class="project-detail"><strong>Location:</strong> Richmond Hill</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #667eea,#764ba2)">🏙️ Credit Valley - Caledon</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Credit Valley - Caledon</div>
-                    <div class="price">From $780,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fieldgate Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Caledo</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #f093fb,#f5576c)">🏙️ Bayview North - Richmond Hill</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Bayview North - Richmond Hill</div>
-                    <div class="price">From $850,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Remington Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Richmond Hill</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #4facfe,#00f2fe)">🏙️ Clarkson Village - Mississauga</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Clarkson Village - Mississauga</div>
-                    <div class="price">From $490,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fernbrook Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #43e97b,#38f9d7)">🏙️ Dundas Square Residences</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Dundas Square Residences</div>
-                    <div class="price">From $810,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Menkes Developments</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #fa709a,#fee140)">🏙️ Embrun Townhomes</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Embrun Townhomes</div>
-                    <div class="price">From $350,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Caivan Communities</div>
-                    <div class="project-detail"><strong>Location:</strong> Embrun</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a18cd1,#fbc2eb)">🏙️ Finch & Leslie Plaza</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Finch & Leslie Plaza</div>
-                    <div class="price">From $620,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Lantera</div>
-                    <div class="project-detail"><strong>Location:</strong> Toronto</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ffecd2,#fcb69f)">🏙️ Green Lane - Newmarket</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Green Lane - Newmarket</div>
-                    <div class="price">From $430,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Fieldgate Homes</div>
-                    <div class="project-detail"><strong>Location:</strong> Newmarket</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #ff9a9e,#fecfef)">🏙️ Hurontario LRT Condos</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Hurontario LRT Condos</div>
-                    <div class="price">From $570,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Great Gulf</div>
-                    <div class="project-detail"><strong>Location:</strong> Mississauga</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #a1c4fd,#c2e9fb)">🏙️ Keswick Heights</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Keswick Heights</div>
-                    <div class="price">From $410,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Brookfield Residential</div>
-                    <div class="project-detail"><strong>Location:</strong> Keswick</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background:linear-gradient(135deg, #d4fc79,#96e6a1)">🏙️ Legacy Creek - Aurora</div>
-                <div class="project-content">
-                    
-                    <div class="project-title">Legacy Creek - Aurora</div>
-                    <div class="price">From $620,000</div>
-                    <div class="project-detail"><strong>Developer:</strong> Greenpark Group</div>
-                    <div class="project-detail"><strong>Location:</strong> Aurora</div>
-                    <a href="https://condosunionrealty.com/contact" class="contact-btn">Inquire Now</a>
+                <div class="stat">
+                    <div class="stat-number">VIP</div>
+                    <div class="stat-label">Access</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    
+    <!-- Projects -->
+    <section class="container">
+        <div class="filter-bar">
+            <button class="filter-btn active">All Projects</button>
+            <button class="filter-btn">Toronto</button>
+            <button class="filter-btn">Mississauga</button>
+            <button class="filter-btn">Markham</button>
+            <button class="filter-btn">Ottawa</button>
+            <button class="filter-btn">Vaughan</button>
+            <button class="filter-btn">Richmond Hill</button>
+            <button class="filter-btn">Burlington</button>
+        </div>
+        
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏘️</span>
+                    <span class="card-location">📍 Oshawa</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Urban Towns - Oshawa North</h3>
+                    <div class="card-developer">🏗️ Townhill Homes</div>
+                    <div class="card-price">From $399,900</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏛️</span>
+                    <span class="card-location">📍 Ottawa</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">The Conservancy - Barrhaven</h3>
+                    <div class="card-developer">🏗️ Caivan Communities</div>
+                    <div class="card-price">From $354,342</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌊</span>
+                    <span class="card-location">📍 Pickering</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">New Seaton - Pickering</h3>
+                    <div class="card-developer">🏗️ Towerhill Homes</div>
+                    <div class="card-price">From $450,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Markham</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Triple Crown Estates</h3>
+                    <div class="card-developer">🏗️ Remington Homes</div>
+                    <div class="card-price">From $800,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Aura - Lakeview Village</h3>
+                    <div class="card-developer">🏗️ Caivan Communities</div>
+                    <div class="card-price">Towns from High $500s</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏘️</span>
+                    <span class="card-location">📍 Oakville</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Glenway Townhomes</h3>
+                    <div class="card-developer">🏗️ Andrin Homes</div>
+                    <div class="card-price">From $550,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌅</span>
+                    <span class="card-location">📍 Whitby</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">WestHaven - Whitby</h3>
+                    <div class="card-developer">🏗️ Andrin Homes</div>
+                    <div class="card-price">From $480,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-location">📍 King City</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">King Terraces - King City</h3>
+                    <div class="card-developer">🏗️ Fieldgate Homes</div>
+                    <div class="card-price">From $700,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #a1c4fd, #c2e9fb);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Vaughan</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Gold Park Homes - Vaughan</h3>
+                    <div class="card-developer">🏗️ Fieldgate Homes</div>
+                    <div class="card-price">From Low $2Ms</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #d4fc79, #96e6a1);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏘️</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">LIVE/WORK Townhome - Port Credit</h3>
+                    <div class="card-developer">🏗️ Remington Homes</div>
+                    <div class="card-price">From $650,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏔️</span>
+                    <span class="card-location">📍 Barrie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Midhurst Valley - Near Barrie</h3>
+                    <div class="card-developer">🏗️ Brookfield Residential</div>
+                    <div class="card-price">From High $600s</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏘️</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Eclipse - Downtown Toronto</h3>
+                    <div class="card-developer">🏗️ Great Gulf</div>
+                    <div class="card-price">From $750,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 North York</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">The Bentley Residences</h3>
+                    <div class="card-developer">🏗️ Lantera</div>
+                    <div class="card-price">From $580,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #e0c3fc, #8ec5fc);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏙️</span>
+                    <span class="card-location">📍 Vaughan</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Vaughan Metropolitan</h3>
+                    <div class="card-developer">🏗️ Menkes Developments</div>
+                    <div class="card-price">From $620,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fdcbf1, #e6dee9);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏘️</span>
+                    <span class="card-location">📍 Aurora</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Parkside Towns - Aurora</h3>
+                    <div class="card-developer">🏗️ Brookfield Residential</div>
+                    <div class="card-price">From $520,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Richmond Hill</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Richmond Green Estates</h3>
+                    <div class="card-developer">🏗️ Greenpark Group</div>
+                    <div class="card-price">From $1.2M</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌅</span>
+                    <span class="card-location">📍 Oshawa</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Water's Edge - Oshawa</h3>
+                    <div class="card-developer">🏗️ Townhill Homes</div>
+                    <div class="card-price">From $420,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌃</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">The Ivy - Mississauga</h3>
+                    <div class="card-developer">🏗️ Fernbrook Homes</div>
+                    <div class="card-price">From $480,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Union Station Condos</h3>
+                    <div class="card-developer">🏗️ Diamond Corp</div>
+                    <div class="card-price">From $680,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-location">📍 Maple</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Maple Ridge - Maple</h3>
+                    <div class="card-developer">🏗️ Fieldgate Homes</div>
+                    <div class="card-price">From $380,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌃</span>
+                    <span class="card-location">📍 Burlington</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Burlington Heights</h3>
+                    <div class="card-developer">🏗️ Caivan Communities</div>
+                    <div class="card-price">From $560,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-location">📍 Scarborough</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Scarborough Junction</h3>
+                    <div class="card-developer">🏗️ Remington Homes</div>
+                    <div class="card-price">From $440,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Forest Hill</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Forest Hill Residences</h3>
+                    <div class="card-developer">🏗️ Great Gulf</div>
+                    <div class="card-price">From $850,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #a1c4fd, #c2e9fb);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Hamilto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Niagara Escarpent Homes</h3>
+                    <div class="card-developer">🏗️ Brookfield Residential</div>
+                    <div class="card-price">From $720,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #d4fc79, #96e6a1);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌅</span>
+                    <span class="card-location">📍 Whitby</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Durham Live - Whitby</h3>
+                    <div class="card-developer">🏗️ Towerhill Homes</div>
+                    <div class="card-price">From $410,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌆</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Yorkville Plaza</h3>
+                    <div class="card-developer">🏗️ Menkes Developments</div>
+                    <div class="card-price">From $950,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Mississauga City Centre 2</h3>
+                    <div class="card-developer">🏗️ Fernbrook Homes</div>
+                    <div class="card-price">From $510,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌃</span>
+                    <span class="card-location">📍 Oakville</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Oakville Waterfront</h3>
+                    <div class="card-developer">🏗️ Andrin Homes</div>
+                    <div class="card-price">From $780,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #e0c3fc, #8ec5fc);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌃</span>
+                    <span class="card-location">📍 Brampton</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Brampton West End</h3>
+                    <div class="card-developer">🏗️ Greenpark Group</div>
+                    <div class="card-price">From $390,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fdcbf1, #e6dee9);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏙️</span>
+                    <span class="card-location">📍 Newmarket</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Newmarket Heights</h3>
+                    <div class="card-developer">🏗️ Fieldgate Homes</div>
+                    <div class="card-price">From $460,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-location">📍 Etobicoke</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Etobicoke Sky</h3>
+                    <div class="card-developer">🏗️ Lantera</div>
+                    <div class="card-price">From $550,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Distillery District Lofts</h3>
+                    <div class="card-developer">🏗️ Great Gulf</div>
+                    <div class="card-price">From $720,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Vaughan</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Casa Condos - Vaughan</h3>
+                    <div class="card-developer">🏗️ Menkes Developments</div>
+                    <div class="card-price">From $590,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Markham</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Pinnacle Centre - Markham</h3>
+                    <div class="card-developer">🏗️ Greenpark Group</div>
+                    <div class="card-price">From $610,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌃</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lakeshore Vista - Mississauga</h3>
+                    <div class="card-developer">🏗️ Fernbrook Homes</div>
+                    <div class="card-price">From $530,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏔️</span>
+                    <span class="card-location">📍 Barrie</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Hidden Trail - Barrie</h3>
+                    <div class="card-developer">🏗️ Brookfield Residential</div>
+                    <div class="card-price">From $440,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Mount Pleasant Village</h3>
+                    <div class="card-developer">🏗️ Diamond Corp</div>
+                    <div class="card-price">From $680,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌃</span>
+                    <span class="card-location">📍 Oakville</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Bronte Harbour - Oakville</h3>
+                    <div class="card-developer">🏗️ Andrin Homes</div>
+                    <div class="card-price">From $760,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #a1c4fd, #c2e9fb);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Heart of York Condo</h3>
+                    <div class="card-developer">🏗️ Great Gulf</div>
+                    <div class="card-price">From $520,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #d4fc79, #96e6a1);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏙️</span>
+                    <span class="card-location">📍 Richmond Hill</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Highland Heights - Richmond Hill</h3>
+                    <div class="card-developer">🏗️ Greenpark Group</div>
+                    <div class="card-price">From $640,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #84fab0, #8fd3f4);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-location">📍 Caledo</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Credit Valley - Caledon</h3>
+                    <div class="card-developer">🏗️ Fieldgate Homes</div>
+                    <div class="card-price">From $780,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #cfd9df, #e2ebf0);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏙️</span>
+                    <span class="card-location">📍 Richmond Hill</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Bayview North - Richmond Hill</h3>
+                    <div class="card-developer">🏗️ Remington Homes</div>
+                    <div class="card-price">From $850,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏡</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Clarkson Village - Mississauga</h3>
+                    <div class="card-developer">🏗️ Fernbrook Homes</div>
+                    <div class="card-price">From $490,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #e0c3fc, #8ec5fc);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Dundas Square Residences</h3>
+                    <div class="card-developer">🏗️ Menkes Developments</div>
+                    <div class="card-price">From $810,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fdcbf1, #e6dee9);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏘️</span>
+                    <span class="card-location">📍 Embrun</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Embrun Townhomes</h3>
+                    <div class="card-developer">🏗️ Caivan Communities</div>
+                    <div class="card-price">From $350,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🌆</span>
+                    <span class="card-location">📍 Toronto</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Finch & Leslie Plaza</h3>
+                    <div class="card-developer">🏗️ Lantera</div>
+                    <div class="card-price">From $620,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏙️</span>
+                    <span class="card-location">📍 Newmarket</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Green Lane - Newmarket</h3>
+                    <div class="card-developer">🏗️ Fieldgate Homes</div>
+                    <div class="card-price">From $430,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏢</span>
+                    <span class="card-location">📍 Mississauga</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Hurontario LRT Condos</h3>
+                    <div class="card-developer">🏗️ Great Gulf</div>
+                    <div class="card-price">From $570,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏗️</span>
+                    <span class="card-location">📍 Keswick</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Keswick Heights</h3>
+                    <div class="card-developer">🏗️ Brookfield Residential</div>
+                    <div class="card-price">From $410,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                    <span class="card-badge">🔥 PLATINUM</span>
+                    <span class="card-icon">🏙️</span>
+                    <span class="card-location">📍 Aurora</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Legacy Creek - Aurora</h3>
+                    <div class="card-developer">🏗️ Greenpark Group</div>
+                    <div class="card-price">From $620,000</div>
+                    <div class="card-features">
+                        <span class="card-feature">Pre-Construction</span>
+                        <span class="card-feature">VIP Access</span>
+                        <span class="card-feature">New Launch</span>
+                    </div>
+                    <a href="contact.html" class="card-btn">Get VIP Access →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Condos Union Realty Inc. Brokerage. All Rights Reserved.</p>
+        <p>Call us: <a href="tel:+14165551234">+1 (416) 555-1234</a> | Email: <a href="mailto:info@condosunionrealty.com">info@condosunionrealty.com</a></p>
+    </footer>
 </body>
 </html>
