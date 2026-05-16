@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Condos Union Realty</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #333; }
+        .header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 18px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .header h1 { font-size: 1.3em; }
+        .header .nav-links { display: flex; gap: 20px; }
+        .header .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9em; transition: color 0.3s; }
+        .header .nav-links a:hover { color: #FFD700; }
+        .header .user-info { display: flex; align-items: center; gap: 12px; }
+        .header .user-info span { font-size: 0.9em; }
+        .header .logout-btn { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 6px 14px; border-radius: 20px; cursor: pointer; font-size: 0.85em; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+        
+        .back-link { display: inline-block; margin-bottom: 20px; color: #667eea; text-decoration: none; font-size: 0.9em; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .project-hero { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08); margin-bottom: 30px; }
+        .project-hero .hero-image { width: 100%; height: 350px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; position: relative; }
+        .project-hero .hero-image .project-icon { font-size: 5em; }
+        .project-hero .hero-image .platinum-badge { position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #FFD700, #FF8c00); color: #1a1a2e; padding: 8px 20px; border-radius: 25px; font-weight: bold; font-size: 0.85em; }
+        .project-hero .hero-content { padding: 30px 35px; }
+        .project-hero .hero-content h2 { font-size: 2em; color: #1a1a2e; margin-bottom: 8px; }
+        .project-hero .hero-content .developer { color: #888; font-size: 0.95em; margin-bottom: 15px; }
+        .project-hero .hero-content .price-tag { font-size: 1.8em; color: #e74c3c; font-weight: bold; margin-bottom: 20px; }
+        
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 30px; }
+        .detail-card { background: white; border-radius: 14px; padding: 25px 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+        .detail-card h3 { color: #1a1a2e; margin-bottom: 18px; font-size: 1.15em; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .detail-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f8f8f8; }
+        .detail-row:last-child { border-bottom: none; }
+        .detail-row .label { color: #888; font-size: 0.9em; }
+        .detail-row .value { color: #333; font-weight: 600; font-size: 0.9em; text-align: right; }
+        
+        .description-card { background: white; border-radius: 14px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .description-card h3 { color: #1a1a2e; margin-bottom: 15px; font-size: 1.15em; }
+        .description-card p { line-height: 1.8; color: #555; font-size: 0.95em; }
+        
+        .features-card { background: white; border-radius: 14px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .features-card h3 { color: #1a1a2e; margin-bottom: 18px; font-size: 1.15em; }
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .feature-item { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: #f8f9ff; border-radius: 10px; font-size: 0.9em; color: #333; }
+        .feature-item .icon { font-size: 1.3em; }
+        
+        .cta-section { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 16px; padding: 40px; text-align: center; }
+        .cta-section h3 { font-size: 1.6em; margin-bottom: 12px; }
+        .cta-section p { opacity: 0.85; margin-bottom: 25px; font-size: 1em; }
+        .cta-section .cta-btn { display: inline-block; background: white; color: #667eea; padding: 14px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1em; transition: transform 0.3s, box-shadow 0.3s; }
+        .cta-section .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        .access-denied { text-align: center; padding: 80px 20px; }
+        .access-denied h2 { color: #e74c3c; margin-bottom: 15px; }
+        .access-denied p { color: #888; margin-bottom: 25px; }
+        .access-denied .login-btn { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 35px; border-radius: 25px; text-decoration: none; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .details-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .header { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Access Denied (shown when not logged in) -->
+        <div id="accessDenied" class="access-denied" style="display:none;">
+            <h2>🔒 Login Required</h2>
+            <p>You must be logged in to view exclusive pre-construction project details.</p>
+            <a href="portal.html" class="login-btn">Login / Register</a>
+        </div>
+        
+        <!-- Main Content (shown when logged in) -->
+        <div id="mainContent" style="display:none;">
+            <div class="header">
+                <h1>🔷 Condos Union Realty</h1>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="platinum-projects.html">Platinum Projects</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="user-info">
+                    <span id="userName"></span>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+            
+            <div class="container">
+                <a href="platinum-projects.html" class="back-link">← Back to All Projects</a>
+                
+                <div class="project-hero" id="projectHero">
+                    <!-- Dynamically filled -->
+                </div>
+                
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h3>📋 Project Details</h3>
+                        <div id="projectDetails">
+                            <!-- Dynamically filled -->
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <h3>💰 Pricing & Deposit</h3>
+                        <div id="pricingDetails">
+                            <!-- Dynamically filled -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="description-card">
+                    <h3>📝 Project Description</h3>
+                    <p id="projectDescription"></p>
+                </div>
+                
+                <div class="features-card">
+                    <h3>✨ Key Features</h3>
+                    <div class="features-grid" id="featuresGrid">
+                        <!-- Dynamically filled -->
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>Interested in this project?</h3>
+                    <p>Get VIP access, floor plans, and exclusive incentives.</p>
+                    <a href="contact.html" class="cta-btn">Contact Us Today →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Check login
+        const user = JSON.parse(localStorage.getItem('cur_loggedin') || 'null');
+        if (!user) {
+            document.getElementById('accessDenied').style.display = 'block';
+        } else {
+            document.getElementById('mainContent').style.display = 'block';
+            document.getElementById('userName').textContent = '👤 ' + user.name;
+        }
+
+        function logout() {
+            localStorage.removeItem('cur_loggedin');
+            window.location.href = 'portal.html';
+        }
+
+        // Get project ID from URL
+        const params = new URLSearchParams(window.location.search);
+        const projectId = params.get('id');
+
+        if (projectId && user) {
+            // Load project data
+            fetch('data/projects.json')
+                .then(r => r.json())
+                .then(projects => {
+                    const project = projects.find(p => p.id === projectId);
+                    if (!project) {
+                        document.getElementById('projectHero').innerHTML = '<p style="padding:40px;text-align:center;color:#888;">Project not found.</p>';
+                        return;
+                    }
+                    renderProject(project);
+                })
+                .catch(() => {
+                    // Fallback: use URL params or show demo
+                    renderDemoProject(projectId);
+                });
+        }
+
+        function renderProject(p) {
+            // Hero section
+            const gradients = ['#667eea,#764ba2','#f093fb,#f5576c','#4facfe,#00f2fe','#43e97b,#38f9d7','#fa709a,#fee140','#a18cd1,#fbc2eb','#ffecd2,#fcb69f','#ff9a9e,#fecfef','#a1c4fd,#c2e9fb','#d4fc79,#96e6a1'];
+            const g = gradients[Math.abs(hashCode(p.id)) % gradients.length];
+            
+            document.getElementById('projectHero').innerHTML = `
+                <div class="hero-image" style="background:linear-gradient(135deg, ${g})">
+                    <div class="project-icon">${p.type.includes('Detached') || p.type.includes('Luxury') ? '🏡' : '🏙️'}</div>
+                    ${p.vipAccess ? '<div class="platinum-badge">🔥 PLATINUM ACCESS</div>' : ''}
+                </div>
+                <div class="hero-content">
+                    <h2>${p.name}</h2>
+                    <div class="developer">🏗️ ${p.developer} | 📍 ${p.location}</div>
+                    <div class="price-tag">${p.price}</div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                        <span style="background:#f0f4ff;color:#667eea;padding:5px 14px;border-radius:20px;font-size:0.85em;">${p.type}</span>
+                        <span style="background:#f0f4ff;color:#667eea;padding:5px 14px;border-radius:20px;font-size:0.85em;">${p.bedrooms}</span>
+                        <span style="background:#f0f4ff;color:#667eea;padding:5px 14px;border-radius:20px;font-size:0.85em;">${p.bathrooms}</span>
+                        <span style="background:#f0f4ff;color:#667eea;padding:5px 14px;border-radius:20px;font-size:0.85em;">${p.sqft}</span>
+                    </div>
+                </div>
+            `;
+
+            // Details
+            document.getElementById('projectDetails').innerHTML = `
+                <div class="detail-row"><span class="label">Status</span><span class="value">${p.status}</span></div>
+                <div class="detail-row"><span class="label">Type</span><span class="value">${p.type}</span></div>
+                <div class="detail-row"><span class="label">Bedrooms</span><span class="value">${p.bedrooms}</span></div>
+                <div class="detail-row"><span class="label">Bathrooms</span><span class="value">${p.bathrooms}</span></div>
+                <div class="detail-row"><span class="label">Size</span><span class="value">${p.sqft}</span></div>
+                <div class="detail-row"><span class="label">Completion</span><span class="value">${p.completionDate}</span></div>
+                <div class="detail-row"><span class="label">Maintenance</span><span class="value">${p.maintenanceFee}</span></div>
+            `;
+
+            // Pricing
+            document.getElementById('pricingDetails').innerHTML = `
+                <div class="detail-row"><span class="label">Starting Price</span><span class="value" style="color:#e74c3c;font-size:1.1em;">${p.price}</span></div>
+                <div class="detail-row"><span class="label">Deposit Structure</span><span class="value">${p.depositStructure}</span></div>
+                <div class="detail-row"><span class="label">Maintenance Fee</span><span class="value">${p.maintenanceFee}</span></div>
+                <div class="detail-row"><span class="label">VIP Access</span><span class="value">${p.vipAccess ? '✅ Required' : '✅ Open'}</span></div>
+            `;
+
+            // Description
+            document.getElementById('projectDescription').textContent = p.description;
+
+            // Features
+            const featuresHtml = (p.features || []).map(f => {
+                const icon = f.includes('Great Gulf') || f.includes('Menkes') || f.includes('Tridel') || f.includes('Fieldgate') || f.includes('Andrin') || f.includes('Fernbrook') || f.includes('Townhill') || f.includes('Caivan') || f.includes('Remington') || f.includes('Brookfield') || f.includes('Lantera') || f.includes('Diamond') || f.includes('Greenpark') ? '🏗️' :
+                               f.includes('GO') || f.includes('transit') || f.includes('subway') || f.includes('TTC') || f.includes('LRT') ? '🚇' :
+                               f.includes('park') || f.includes('nature') || f.includes('Lake') || f.includes('waterfront') ? '🌳' :
+                               f.includes('school') || f.includes('family') ? '🎓' : '✨';
+                return `<div class="feature-item"><span class="icon">${icon}</span><span>${f}</span></div>`;
+            }).join('');
+            document.getElementById('featuresGrid').innerHTML = featuresHtml;
+        }
+
+        function renderDemoProject(id) {
+            // Fallback demo data
+            document.getElementById('projectHero').innerHTML = `
+                <div class="hero-image" style="background:linear-gradient(135deg, #667eea, #764ba2)">
+                    <div class="project-icon">🏙️</div>
+                    <div class="platinum-badge">🔥 PLATINUM ACCESS</div>
+                </div>
+                <div class="hero-content">
+                    <h2>Exclusive Platinum Project</h2>
+                    <div class="developer">🏗️ Premium Developer | 📍 GTA</div>
+                    <div class="price-tag">Contact for Pricing</div>
+                </div>
+            `;
+            document.getElementById('projectDescription').textContent = 'This is an exclusive platinum project. Please contact us for full details, floor plans, and VIP access.';
+            document.getElementById('featuresGrid').innerHTML = [
+                '🏗️ Premium Developer','🚇 Transit Accessible','🌳 Prime Location'
+            ].map(f => `<div class="feature-item"><span>${f}</span></div>`).join('');
+        }
+
+        function hashCode(s) {
+            let h = 0;
+            for (let i = 0; i < s.length; i++) {
+                h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+            }
+            return h;
+        }
+    </script>
+</body>
+</html>
