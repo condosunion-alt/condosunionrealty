@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase Worksheet | Condos Union Realty</title>
+  <meta name="description" content="Submit your Purchase Worksheet for pre-construction condo & townhome priority access. Fast pre-approval.">
+  <meta name="keywords" content="purchase worksheet, pre-construction condo, GTA real estate, pre-approval, Condos Union Realty">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Purchase Worksheet | Condos Union Realty">
+  <meta property="og:description" content="Submit your Purchase Worksheet for pre-construction priority access. Fast pre-approval.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://condosunionrealty.com/worksheet.html">
+  <meta property="og:image" content="https://condosunionrealty.com/images/logo.png">
+  <meta property="og:site_name" content="Condos Union Realty">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Purchase Worksheet | Condos Union Realty">
+  <meta name="twitter:description" content="Submit your Purchase Worksheet for pre-construction priority access.">
+  <meta name="twitter:image" content="https://condosunionrealty.com/images/logo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Page-specific styles -->
+  <style>
+    .ws-hero {
+      padding: 140px 0 80px;
+      background: var(--color-navy);
+      text-align: center;
+    }
+    .ws-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      color: var(--color-white);
+      margin-bottom: 16px;
+    }
+    .ws-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main form container */
+    .ws-body { padding: 60px 0 100px; }
+    .ws-form-container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* Section blocks */
+    .ws-section {
+      background: var(--color-white);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      padding: 40px;
+      margin-bottom: 32px;
+    }
+    .ws-section-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--color-text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ws-section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: var(--color-gold);
+      color: var(--color-navy);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ws-section-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    /* Form grid */
+    .ws-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .ws-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+
+    /* File upload */
+    .file-upload-area {
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      background: rgba(201,169,98,0.02);
+    }
+    .file-upload-area:hover {
+      border-color: var(--color-gold);
+      background: rgba(201,169,98,0.06);
+    }
+    .file-upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    .file-upload-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .file-upload-text {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .file-upload-hint {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+    .file-upload-area.has-file {
+      border-color: #22c55e;
+      border-style: solid;
+      background: rgba(34,197,94,0.04);
+    }
+    .file-name-display {
+      font-size: 0.85rem;
+      color: #16a34a;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    /* Required indicator */
+    .required-hint {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+    .required-hint span { color: #dc2626; }
+
+    /* Submit bar */
+    .ws-submit-bar {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 8px;
+    }
+    .ws-submit-bar p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* Progress indicator */
+    .ws-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 820px;
+      margin: -50px auto 36px;
+      position: relative;
+      z-index: 2;
+    }
+    .ws-progress-step {
+      flex: 1;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .ws-progress-step.active { color: var(--color-gold); }
+    .ws-progress-step::after {
+      content: '';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+    }
+    .ws-progress-step.active::after { background: var(--color-gold); box-shadow: 0 0 8px rgba(201,169,98,0.5); }
+
+    @media (max-width: 768px) {
+      .ws-section { padding: 28px 20px; }
+      .ws-grid-2, .ws-grid-3 { grid-template-columns: 1fr; }
+      .ws-progress { display: none; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Purchase Worksheet | Condos Union Realty",
+  "description": "Submit your Purchase Worksheet for pre-construction priority access.",
+  "url": "https://condosunionrealty.com/worksheet.html"
+}
+</script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="images/logo.png" alt="Condos Union Realty">
+        <span style="color:#c9a962;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.04em;white-space:nowrap;">Condos Union Realty <span style="color:#e8d5a3;font-weight:400;font-size:0.85rem;margin-left:4px;letter-spacing:0.08em;">Inc. Brokerage</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="platinum-projects.html" class="nav-link">🔥 Platinum</a>
+        <a href="assignment.html" class="nav-link">Assignments</a>
+        <a href="market-report.html" class="nav-link">Market Report</a>
+        <a href="worksheet.html" class="nav-link active">Purchase Worksheet</a>
+        
+        <a href="portal.html" class="nav-link">Portal</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="projects.html" class="mobile-link">Projects</a>
+    <a href="assignment.html" class="mobile-link">Assignments</a>
+    <a href="market-report.html" class="mobile-link">Market Report</a>
+    <a href="worksheet.html" class="mobile-link active">Worksheet</a>
+    
+    <a href="contact.html" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="ws-hero">
+    <div class="container">
+      <span class="hero-tag">Secure Your Unit</span>
+      <h1>Purchase Worksheet</h1>
+      <p>Complete this form to reserve your priority selection for pre-construction units.</p>
+    </div>
+  </section>
+
+  <!-- Progress Steps -->
+  <div class="ws-progress">
+    <div class="ws-progress-step active">Model Choice</div>
+    <div class="ws-progress-step active">Purchaser 1</div>
+    <div class="ws-progress-step active">Purchaser 2</div>
+    <div class="ws-progress-step active">ID Upload</div>
+  </div>
+
+  <!-- Form Body -->
+  <section class="ws-body">
+    <div class="ws-form-container">
+
+      <form id="purchaseWorksheet" action="https://formsubmit.co/condosunion@gmail.com" method="POST" enctype="multipart/form-data"
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://condosunionrealty.com/worksheet.html?submitted=1">
+        <input type="hidden" name="_subject" value="New Purchase Worksheet Submission — Condos Union Realty">
+        <input type="hidden" name="_template" value="table">
+
+        <!-- Required hint -->
+        <div class="required-hint"><span>*</span> Indicates required field</div>
+
+        <!-- ===== SECTION 1: Model Choice ===== -->
+        <div class="ws-section">
+          <h2 class="ws-section-title"><span class="num">1</span> Model Selection</h2>
+          <p class="ws-section-desc">Select your preferred unit models in order of preference.</p>
+
+          <div class="form-group">
+            <label class="form-label" for="model1">1st Choice Model <span style="color:#dc2626">*</span></label>
+            <input type="text" id="model1" name="model1" class="form-input" placeholder="e.g. Suite A-301" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="model2">2nd Choice Model <span style="color:#dc2626">*</span></label>
+            <input type="text" id="model2" name="model2" class="form-input" placeholder="e.g. Suite B-205" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="model3">3rd Choice Model <span style="color:#dc2626">*</span></label>
+            <input type="text" id="model3" name="model3" class="form-input" placeholder="e.g. Suite C-108" required>
+          </div>
+        </div>
+
+        <!-- ===== SECTION 2: Purchaser 1 ===== -->
+        <div class="ws-section">
+          <h2 class="ws-section-title"><span class="num">2</span> Primary Purchaser Information</h2>
+          <p class="ws-section-desc">Please provide details for the primary purchaser.</p>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="p1_first">First Name <span style="color:#dc2626">*</span></label>
+              <input type="text" id="p1_first" name="p1_first" class="form-input" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p1_last">Last Name <span style="color:#dc2626">*</span></label>
+              <input type="text" id="p1_last" name="p1_last" class="form-input" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="p1_dl">Driver's License / Passport No. <span style="color:#dc2626">*</span></label>
+              <input type="text" id="p1_dl" name="p1_dl" class="form-input" placeholder="License or Passport Number" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p1_dob">Date of Birth <span style="color:#dc2626">*</span></label>
+              <input type="date" id="p1_dob" name="p1_dob" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p1_address">Address <span style="color:#dc2626">*</span></label>
+            <input type="text" id="p1_address" name="p1_address" class="form-input" placeholder="Street Address" required>
+          </div>
+
+          <div class="ws-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="p1_city">City <span style="color:#dc2626">*</span></label>
+              <input type="text" id="p1_city" name="p1_city" class="form-input" placeholder="City" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p1_postal">Postal Code <span style="color:#dc2626">*</span></label>
+              <input type="text" id="p1_postal" name="p1_postal" class="form-input" placeholder="A1A 1A1" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p1_occupation">Occupation <span style="color:#dc2626">*</span></label>
+              <input type="text" id="p1_occupation" name="p1_occupation" class="form-input" placeholder="Occupation" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p1_company">Company / Business Name</label>
+            <input type="text" id="p1_company" name="p1_company" class="form-input" placeholder="Company or Business Name (optional)">
+          </div>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="p1_cell">Cell Phone <span style="color:#dc2626">*</span></label>
+              <input type="tel" id="p1_cell" name="p1_cell" class="form-input" placeholder="(xxx) xxx-xxxx" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p1_home">Home Phone</label>
+              <input type="tel" id="p1_home" name="p1_home" class="form-input" placeholder="(xxx) xxx-xxxx">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p1_email">Email <span style="color:#dc2626">*</span></label>
+            <input type="email" id="p1_email" name="p1_email" class="form-input" placeholder="email@example.com" required>
+          </div>
+        </div>
+
+        <!-- ===== SECTION 3: Purchaser 2 ===== -->
+        <div class="ws-section">
+          <h2 class="ws-section-title"><span class="num">3</span> Secondary Purchaser Information</h2>
+          <p class="ws-section-desc">If applicable, provide details for the co-purchaser.</p>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="p2_first">First Name</label>
+              <input type="text" id="p2_first" name="p2_first" class="form-input" placeholder="First Name (optional)">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p2_last">Last Name</label>
+              <input type="text" id="p2_last" name="p2_last" class="form-input" placeholder="Last Name (optional)">
+            </div>
+          </div>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="p2_dl">Driver's License / Passport No.</label>
+              <input type="text" id="p2_dl" name="p2_dl" class="form-input" placeholder="License or Passport Number">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p2_dob">Date of Birth</label>
+              <input type="date" id="p2_dob" name="p2_dob" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p2_address">Address</label>
+            <input type="text" id="p2_address" name="p2_address" class="form-input" placeholder="Street Address">
+          </div>
+
+          <div class="ws-grid-3">
+            <div class="form-group">
+              <label class="form-label" for="p2_city">City</label>
+              <input type="text" id="p2_city" name="p2_city" class="form-input" placeholder="City">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p2_postal">Postal Code</label>
+              <input type="text" id="p2_postal" name="p2_postal" class="form-input" placeholder="A1A 1A1">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p2_occupation">Occupation</label>
+              <input type="text" id="p2_occupation" name="p2_occupation" class="form-input" placeholder="Occupation">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p2_company">Company / Business Name</label>
+            <input type="text" id="p2_company" name="p2_company" class="form-input" placeholder="Company or Business Name">
+          </div>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label" for="p2_cell">Cell Phone</label>
+              <input type="tel" id="p2_cell" name="p2_cell" class="form-input" placeholder="(xxx) xxx-xxxx">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="p2_home">Home Phone</label>
+              <input type="tel" id="p2_home" name="p2_home" class="form-input" placeholder="(xxx) xxx-xxxx">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="p2_email">Email</label>
+            <input type="email" id="p2_email" name="p2_email" class="form-input" placeholder="email@example.com">
+          </div>
+        </div>
+
+        <!-- ===== SECTION 4: ID Upload ===== -->
+        <div class="ws-section">
+          <h2 class="ws-section-title"><span class="num">4</span> Identification Documents</h2>
+          <p class="ws-section-desc">Upload a copy of government-issued photo ID for each purchaser (JPG, PNG, PDF —Max 10MB each).</p>
+
+          <div class="ws-grid-2">
+            <div class="form-group">
+              <label class="form-label">Purchaser 1 ID Upload <span style="color:#dc2626">*</span></label>
+              <div class="file-upload-area" id="uploadArea1">
+                <input type="file" name="id_upload_1" accept=".jpg,.jpeg,.png,.pdf" required onchange="handleFile(this,'uploadArea1')">
+                <div class="file-upload-icon">📎</div>
+                <div class="file-upload-text">Click to upload or drag & drop</div>
+                <div class="file-upload-hint">JPG, PNG, PDF —Max 10MB</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Purchaser 2 ID Upload <span style="color:#dc2626">*</span></label>
+              <div class="file-upload-area" id="uploadArea2">
+                <input type="file" name="id_upload_2" accept=".jpg,.jpeg,.png,.pdf" required onchange="handleFile(this,'uploadArea2')">
+                <div class="file-upload-icon">📎</div>
+                <div class="file-upload-text">Click to upload or drag & drop</div>
+                <div class="file-upload-hint">JPG, PNG, PDF —Max 10MB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="ws-submit-bar">
+          <p>By submitting this form, you agree to be contacted by Condos Union Realty regarding your purchase worksheet submission.</p>
+          <button type="submit" class="btn btn-primary btn-large" style="padding: 18px 64px;">Submit Purchase Worksheet</button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="images/logo.png" alt="Condos Union Realty" style="height: 28px;">
+          </a>
+          <p class="footer-tagline">GTA Pre-Construction Specialists</p>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Quick Links</h4>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="platinum-projects.html" class="footer-link">🔥 Platinum</a>
+          <a href="assignment.html" class="footer-link">Assignments</a>
+          <a href="market-report.html" class="footer-link">Market Report</a>
+          <a href="portal.html" class="footer-link">Register</a>
+          <a href="worksheet.html" class="footer-link">Purchase Worksheet</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading">Contact</h4>
+          <p class="footer-email">condosunion@gmail.com</p>
+          <p class="footer-phone"><a href="tel:+14376552888" style="color:#c9a962;text-decoration:none;font-weight:600;">437-655-2888</a></p>
+          <a href="https://calendly.com/condosunion" class="footer-link">Book Appointment</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Condos Union Realty Inc. All rights reserved.</p>
+        <p>RECO License #12345RT</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // File upload visual feedback
+    function handleFile(input, areaId) {
+      const area = document.getElementById(areaId);
+      if (input.files && input.files[0]) {
+        area.classList.add('has-file');
+        let existing = area.querySelector('.file-name-display');
+        if (!existing) {
+          existing = document.createElement('div');
+          existing.className = 'file-name-display';
+          area.appendChild(existing);
+        }
+        existing.textContent = '📄' + input.files[0].name + ' (' + (input.files[0].size / 1024).toFixed(1) + ' KB)';
+      } else {
+        area.classList.remove('has-file');
+        const existing = area.querySelector('.file-name-display');
+        if (existing) existing.remove();
+      }
+    }
+  </script>
+</body>
+</html>

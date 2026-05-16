@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent & Client Portal | Condos Union Realty</title>
+  <meta name="description" content="Register as an agent or client with Condos Union Realty. Get VIP access to pre-construction opportunities in GTA.">
+  <meta name="keywords" content="real estate agent registration, client portal, GTA pre-construction, VIP access, Condos Union Realty">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Agent & Client Portal | Condos Union Realty">
+  <meta property="og:description" content="Register as an agent or client. Get VIP access to pre-construction opportunities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://condosunionrealty.com/portal.html">
+  <meta property="og:image" content="https://condosunionrealty.com/images/logo.png">
+  <meta property="og:site_name" content="Condos Union Realty">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agent & Client Portal | Condos Union Realty">
+  <meta name="twitter:description" content="Register as an agent or client. Get VIP access to pre-construction opportunities.">
+  <meta name="twitter:image" content="https://condosunionrealty.com/images/logo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <style>
+    .portal-hero {
+      padding: 160px 0 80px;
+      background: var(--color-navy);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .portal-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(201,169,98,0.08) 0%, transparent 60%);
+      animation: portalGlow 8s ease-in-out infinite alternate;
+    }
+    @keyframes portalGlow {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(3%, 2%) rotate(3deg); }
+    }
+    .portal-hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      color: var(--color-white);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .portal-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 550px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Choice Cards */
+    .portal-choice {
+      padding: 80px 0;
+      background: var(--color-cream);
+    }
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .portal-card {
+      background: var(--color-white);
+      border-radius: 20px;
+      padding: 56px 44px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      transition: all var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .portal-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-gold);
+    }
+    .portal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .portal-card:hover::before {
+      transform: scaleX(1);
+    }
+    .portal-card-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2.4rem;
+    }
+    .portal-card-icon.agent {
+      background: linear-gradient(135deg, #1a365d, #2c5282);
+    }
+    .portal-card-icon.client {
+      background: linear-gradient(135deg, #744210, #975a16);
+    }
+    .portal-card h2 {
+      font-size: 1.75rem;
+      color: var(--color-navy);
+      margin-bottom: 12px;
+    }
+    .portal-card .portal-card-desc {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .portal-card .btn {
+      padding: 14px 40px;
+      font-size: 1rem;
+    }
+
+    /* Features list */
+    .portal-features {
+      margin-top: 24px;
+      text-align: left;
+      padding: 0 10px;
+    }
+    .portal-features li {
+      list-style: none;
+      padding: 6px 0;
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .portal-features li::before {
+      content: '✓';
+      color: var(--color-gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    /* Registration Forms Section */
+    .portal-forms {
+      padding: 80px 0;
+      background: var(--color-white);
+      display: none;
+    }
+    .portal-forms.active {
+      display: block;
+    }
+    .form-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .form-header h2 {
+      font-size: 2rem;
+      color: var(--color-navy);
+      margin-bottom: 8px;
+    }
+    .form-header p {
+      color: var(--color-text-muted);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--color-gold-dark);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--color-gold); }
+
+    /* Form styling */
+    .reg-form {
+      background: var(--color-cream);
+      border-radius: 16px;
+      padding: 44px;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-navy);
+      margin-bottom: 6px;
+    }
+    .form-group label .required {
+      color: #dc2626;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 18px;
+      border: 1.5px solid var(--color-cream-dark);
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      background: var(--color-white);
+      transition: border-color 0.25s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-gold);
+      box-shadow: 0 0 0 3px rgba(201,169,98,0.12);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+    .form-submit-bar {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+    .form-hint {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .portal-grid { grid-template-columns: 1fr; gap: 24px; }
+      .portal-card { padding: 40px 28px; }
+      .form-row { grid-template-columns: 1fr; }
+      .reg-form { padding: 28px 20px; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Agent & Client Portal | Condos Union Realty",
+  "description": "Register as an agent or client with Condos Union Realty.",
+  "url": "https://condosunionrealty.com/portal.html"
+}
+</script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+        <img src="images/logo.png" alt="Condos Union Realty" style="height:95px;">
+        <span style="color:#c9a962;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.04em;white-space:nowrap;">Condos Union Realty <span style="color:#e8d5a3;font-weight:400;font-size:0.85rem;margin-left:4px;letter-spacing:0.08em;">Inc. Brokerage</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="platinum-projects.html" class="nav-link">🔥 Platinum</a>
+        <a href="assignment.html" class="nav-link">Assignments</a>
+        <a href="market-report.html" class="nav-link">Market Report</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="worksheet.html" class="nav-link">Worksheet</a>
+        <a href="portal.html" class="nav-link active">Portal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="portal-hero">
+    <h1>Welcome to Your Portal</h1>
+    <p>Select your registration type to get started with exclusive access.</p>
+  </section>
+
+  <!-- Choice Section -->
+  <section class="portal-choice" id="choiceSection">
+    <div class="container">
+      <div class="portal-grid">
+        <!-- Agent Card -->
+        <div class="portal-card" onclick="showForm('agent')">
+          <div class="portal-card-icon agent">👔</div>
+          <h2>Agent Registration</h2>
+          <p class="portal-card-desc">For real estate professionals looking to partner with Condos Union Realty for VIP project access and client referrals.</p>
+          <ul class="portal-features">
+            <li>VIP Project Pricing Access</li>
+            <li>Co-op Commission Programs</li>
+            <li>Priority Unit Allocation</li>
+            <li>Marketing Material Support</li>
+            <li>Direct Developer Relations</li>
+          </ul>
+          <br>
+          <button type="button" class="btn btn-primary">Register as Agent →</button>
+        </div>
+
+        <!-- Client Card -->
+        <div class="portal-card" onclick="showForm('client')">
+          <div class="portal-card-icon client">🏠</div>
+          <h2>Client Registration</h2>
+          <p class="portal-card-desc">For homebuyers and investors seeking exclusive pre-construction opportunities across the GTA.</p>
+          <ul class="portal-features">
+            <li>Early-Bird Pricing Access</li>
+            <li>Project Updates & Alerts</li>
+            <li>Private Consultation Booking</li>
+            <li>Purchase Worksheet Priority</li>
+            <li>Investment Market Reports</li>
+          </ul>
+          <br>
+          <button type="button" class="btn btn-secondary" style="background:var(--color-navy);color:#fff;border-color:var(--color-navy);">Register as Client →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Form -->
+  <section class="portal-forms" id="agentFormSection">
+    <div class="container">
+      <div class="form-container">
+        <div class="back-link" onclick="hideForms()">← Back to Selection</div>
+        <div class="form-header">
+          <h2>👔 Agent Registration</h2>
+          <p>Partner with us for exclusive pre-construction access</p>
+        </div>
+        <form class="reg-form" action="https://formsubmit.co/condosunion@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="New Agent Registration — Condos Union Realty">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://condosunionrealty.com/portal.html?submitted=agent">
+          <input type="hidden" name="registration_type" value="Agent">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="required">*</span></label>
+              <input type="text" name="first_name" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="required">*</span></label>
+              <input type="text" name="last_name" placeholder="Smith" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email <span class="required">*</span></label>
+              <input type="email" name="email" placeholder="john@realty.ca" required>
+            </div>
+            <div class="form-group">
+              <label>Phone <span class="required">*</span></label>
+              <input type="tel" name="phone" placeholder="(416) 000-0000" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Brokerage Name <span class="required">*</span></label>
+              <input type="text" name="brokerage" placeholder="Your Brokerage Inc." required>
+            </div>
+            <div class="form-group">
+              <label>RECO Number <span class="required">*</span></label>
+              <input type="text" name="reco_number" placeholder="XXXXXX" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Areas of Interest</label>
+            <select name="areas_of_interest" multiple style="min-height:90px;">
+              <option value="Pre-Construction Condos">Pre-Construction Condos</option>
+              <option value="Townhomes">Townhomes</option>
+              <option value="Detached Homes">Detached Homes</option>
+              <option value="Investment Properties">Investment Properties</option>
+              <option value="Commercial">Commercial</option>
+            </select>
+            <small style="color:var(--color-text-muted);font-size:0.82rem;">Hold Ctrl/Cmd to select multiple</small>
+          </div>
+
+          <div class="form-group">
+            <label>Message (Optional)</label>
+            <textarea name="message" placeholder="Tell us about your business and how we can help..."></textarea>
+          </div>
+
+          <div class="form-submit-bar">
+            <button type="submit" class="btn btn-primary btn-large" style="padding:16px 56px;">Submit Agent Registration</button>
+            <p class="form-hint">By submitting, you agree to be contacted by our partnership team.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Form -->
+  <section class="portal-forms" id="clientFormSection">
+    <div class="container">
+      <div class="form-container">
+        <div class="back-link" onclick="hideForms()">← Back to Selection</div>
+        <div class="form-header">
+          <h2>🏠 Client Registration</h2>
+          <p>Get exclusive access to GTA's best pre-construction opportunities</p>
+        </div>
+        <form class="reg-form" action="https://formsubmit.co/condosunion@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="New Client Registration — Condos Union Realty">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://condosunionrealty.com/portal.html?submitted=client">
+          <input type="hidden" name="registration_type" value="Client">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="required">*</span></label>
+              <input type="text" name="first_name" placeholder="Mike" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="required">*</span></label>
+              <input type="text" name="last_name" placeholder="Li" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email <span class="required">*</span></label>
+              <input type="email" name="email" placeholder="mike@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone <span class="required">*</span></label>
+              <input type="tel" name="phone" placeholder="(647) 000-0000" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>I am a...</label>
+            <select name="buyer_type" required>
+              <option value="">Select buyer type...</option>
+              <option value="First-Time Buyer">First-Time Homebuyer</option>
+              <option value="Investor">Investor</option>
+              <option value="Move-Up Buyer">Move-Up Buyer</option>
+              <option value="Downsizing">Downsizing</option>
+              <option value="Realtor (Self Purchase)">Realtor (Self Purchase)</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Budget Range</label>
+              <select name="budget">
+                <option value="">Select budget...</option>
+                <option value="$500K - $700K">$500K - $700K</option>
+                <option value="$700K - $900K">$700K - $900K</option>
+                <option value="$900K - $1.2M">$900K - $1.2M</option>
+                <option value="$1.2M - $1.5M">$1.2M - $1.5M</option>
+                <option value="$1.5M+">$1.5M+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Area</label>
+              <select name="preferred_area">
+                <option value="">Select area...</option>
+                <option value="Toronto (Downtown)">Toronto Downtown</option>
+                <option value="North York">North York</option>
+                <option value="Markham / Vaughan">Markham / Vaughan</option>
+                <option value="Mississauga">Mississauga</option>
+                <option value="Oakville / Burlington">Oakville / Burlington</option>
+                <option value="Richmond Hill">Richmond Hill</option>
+                <option value="Open to GTA">Open to All GTA</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Projects of Interest (Optional)</label>
+            <select name="projects_of_interest" multiple style="min-height:90px;">
+              <option value="Camden Crossing">Camden Crossing (Richmond Hill)</option>
+              <option value="Pier House Towns">Pier House Towns (Mississauga)</option>
+              <option value="Union Glen">Union Glen (Markham)</option>
+              <option value="Claystone Condos">Claystone Condos (Oakville)</option>
+              <option value="Thornhill Walk Towns">Thornhill Walk Towns (Vaughan)</option>
+              <option value="Other / Not Sure">Not Sure Yet</option>
+            </select>
+            <small style="color:var(--color-text-muted);font-size:0.82rem;">Hold Ctrl/Cmd to select multiple</small>
+          </div>
+
+          <div class="form-group">
+            <label>How did you hear about us?</label>
+            <select name="referral_source">
+              <option value="">Select...</option>
+              <option value="Google Search">Google Search</option>
+              <option value="Social Media (Instagram/FB)">Social Media</option>
+              <option value="Referral from Friend/Family">Friend or Family Referral</option>
+              <option value="Realtor Referral">Realtor Referral</option>
+              <option value="Open House / Event">Open House / Event</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-submit-bar">
+            <button type="submit" class="btn btn-secondary btn-large" style="padding:16px 56px;background:var(--color-navy);color:#fff;border-color:var(--color-navy);">Submit Client Registration</button>
+            <p class="form-hint">By submitting, you agree to be contacted by our team within 24 hours.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Message (hidden by default) -->
+  <section class="portal-forms" id="successSection">
+    <div class="container">
+      <div style="text-align:center;padding:80px 20px;">
+        <div style="font-size:4rem;margin-bottom:20px;">✅</div>
+        <h2 style="font-size:2rem;color:var(--color-navy);margin-bottom:12px;">Registration Submitted!</h2>
+        <p style="color:var(--color-text-muted);max-width:480px;margin:0 auto 32px;line-height:1.7;" id="successText">Thank you for registering. Our team will review your information and contact you within 24 hours.</p>
+        <button onclick="hideForms()" class="btn btn-primary">Back to Portal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="images/logo.png" alt="Condos Union Realty" style="height: 28px;">
+          </a>
+          <p class="footer-tagline">GTA Pre-Construction Specialists</p>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="portal.html">Portal</a>
+          <a href="worksheet.html">Purchase Worksheet</a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <a href="mailto:condosunion@gmail.com">condosunion@gmail.com</a>
+          <a href="tel:437-655-2888">437-655-2888</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Condos Union Realty Inc. Brokerage. All rights reserved.</p>
+        <p>RECO License #12345RT</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showForm(type) {
+      document.getElementById('choiceSection').style.display = 'none';
+      document.getElementById('agentFormSection').classList.remove('active');
+      document.getElementById('clientFormSection').classList.remove('active');
+      document.getElementById('successSection').classList.remove('active');
+
+      if (type === 'agent') {
+        document.getElementById('agentFormSection').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (type === 'client') {
+        document.getElementById('clientFormSection').classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function hideForms() {
+      document.getElementById('choiceSection').style.display = 'block';
+      document.getElementById('agentFormSection').classList.remove('active');
+      document.getElementById('clientFormSection').classList.remove('active');
+      document.getElementById('successSection').classList.remove('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Check URL params for success
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted')) {
+      const type = urlParams.get('submitted');
+      document.getElementById('choiceSection').style.display = 'none';
+      document.getElementById('successSection').classList.add('active');
+      const texts = {
+        agent: 'Thank you for registering as an Agent! Our partnership team will review your information and reach out within 24 hours.',
+        client: 'Thank you for registering! You will receive exclusive project updates and our team will contact you within 24 hours.'
+      };
+      document.getElementById('successText').textContent = texts[type] || texts.client;
+    }
+  </script>
+
+</body>
+</html>
