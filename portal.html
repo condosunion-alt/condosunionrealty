@@ -163,7 +163,7 @@
 
             // Auto-login
             localStorage.setItem('cur_loggedin', JSON.stringify({ email, name, type }));
-            setTimeout(() => { window.location.href = 'platinum-projects.html'; }, 1500);
+            setTimeout(() => { window.location.href = type === 'broker' ? 'broker-view.html' : 'client-view.html'; }, 1500);
         }
 
         // Handle login
@@ -185,12 +185,13 @@
             }
 
             localStorage.setItem('cur_loggedin', JSON.stringify({ email: user.email, name: user.name, type: user.type }));
-            window.location.href = 'platinum-projects.html';
+            window.location.href = user.type === 'broker' ? 'broker-view.html' : 'client-view.html';
         }
 
         // Check if already logged in
-        if (localStorage.getItem('cur_loggedin')) {
-            window.location.href = 'platinum-projects.html';
+        const existing = JSON.parse(localStorage.getItem('cur_loggedin') || 'null');
+        if (existing) {
+            window.location.href = existing.type === 'broker' ? 'broker-view.html' : 'client-view.html';
         }
 
         // Show/hide brokerage field

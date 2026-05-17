@@ -1,0 +1,229 @@
+[
+  {
+    "id": "ellis-lane-phase-2",
+    "name": "Ellis Lane Phase 2",
+    "developer": "Poetry Living",
+    "location": "Ellis Lane, Ontario",
+    "price": "From $1 Million+",
+    "status": "Now Accepting Worksheets",
+    "type": "Townhome",
+    "bedrooms": "2-4 Bedrooms",
+    "brokerPortalUrl": "https://poetryliving.com/communities/ellis-lane/ellis-lane-phase-2/broker-portal/",
+    "rsvpUrl": "https://calendly.com/ellislane-poetryliving/ellis-lane-broker-event",
+    "description": "Ellis Lane Phase 2 by Poetry Living. Premium townhomes with broker portal access.",
+    "features": [
+      "Broker Portal Active",
+      "Now Accepting Worksheets",
+      "Model Homes Coming Soon"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "ivy-rouge-phase-3",
+    "name": "Ivy Rouge Phase 3",
+    "developer": "Starlane Homes",
+    "location": "Oakville, ON",
+    "price": "From $600,000+",
+    "status": "Grand Opening",
+    "type": "Detached & Townhome",
+    "bedrooms": "2-5 Bedrooms",
+    "brokerPortalUrl": "https://starlanehomecorp.ca/brokers/ivy-rouge/",
+    "description": "Ivy Rouge Phase 3 by Starlane Homes in Oakville. Grand Opening broker event.",
+    "features": [
+      "Grand Opening",
+      "Broker Portal Active",
+      "$25K-$40K Incentives"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "taywood-estates",
+    "name": "Taywood Estates",
+    "developer": "Greenpark Group",
+    "location": "Burlington, ON",
+    "price": "From $700,000+",
+    "status": "Now Selling",
+    "type": "Detached Homes",
+    "bedrooms": "3-5 Bedrooms",
+    "brokerPortalUrl": "https://brokers.greenparkgroup.ca/taywood-estates/",
+    "description": "Taywood Estates by Greenpark Group in Burlington. In-law suite featured homes.",
+    "features": [
+      "In-Law Suite Design",
+      "Broker Portal Active",
+      "Greenpark Quality"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "south-barrie-remington",
+    "name": "South Barrie",
+    "developer": "Remington Homes",
+    "location": "Barrie, ON",
+    "price": "From $600,000+",
+    "status": "Now Selling",
+    "type": "Townhome & Detached",
+    "bedrooms": "2-4 Bedrooms",
+    "brokerPortalUrl": "https://www.remingtongroupinc.com/remington-homes/south-barrie/sb-broker-portal/",
+    "description": "South Barrie by Remington Homes. Best-selling community in South Barrie.",
+    "features": [
+      "Best-Selling",
+      "Broker Portal Active",
+      "Multiple Models"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "thornhill-walk-carousel",
+    "name": "Carousel Towns at Thornhill Walk",
+    "developer": "Liberty Development",
+    "location": "Thornhill, ON",
+    "price": "Contact for pricing",
+    "status": "VIP Access",
+    "type": "Townhome",
+    "bedrooms": "2-3 Bedrooms",
+    "brokerPortalUrl": "https://www.libertydevelopment.ca/thornhillwalk-vip",
+    "description": "Carousel Towns at Thornhill Walk by Liberty Development. VIP broker access.",
+    "features": [
+      "VIP Broker Portal",
+      "Liberty Development Quality"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "lsq-rare",
+    "name": "LSQ",
+    "developer": "RARE Realty",
+    "location": "Toronto, ON",
+    "price": "From $500,000+",
+    "status": "Now Selling",
+    "type": "Condo",
+    "bedrooms": "1-3 Bedrooms",
+    "brokerPortalUrl": "https://ca.blacklineapp.com/lsq2/access/broker",
+    "rsvpUrl": "https://calendly.com/rarerealestate/lsq2-1-on-1",
+    "description": "LSQ by RARE Realty. Featured 2-bedroom suites with strong earning potential.",
+    "features": [
+      "2-Bed Featured Suites",
+      "Broker App Available",
+      "Strong Commission Potential"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "juniper-gate",
+    "name": "Juniper Gate",
+    "developer": "Remington Homes",
+    "location": "Ontario, ON",
+    "price": "Contact for pricing",
+    "status": "Limited Bungalow Release",
+    "type": "Bungalow",
+    "bedrooms": "2-3 Bedrooms",
+    "brokerPortalUrl": "https://www.remingtongroupinc.com/remington-homes/juniper-gate/broker-portal/",
+    "description": "Juniper Gate by Remington Homes. Limited bungalow release.",
+    "features": [
+      "Limited Bungalow Release",
+      "Broker Portal Active"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "exhale-residences",
+    "name": "Exhale Residences",
+    "developer": "In2ition",
+    "location": "Ontario, ON",
+    "price": "Contact for pricing",
+    "status": "Broker Lunch & Learn",
+    "type": "Condo/Townhome",
+    "bedrooms": "1-3 Bedrooms",
+    "brokerPortalUrl": "https://calendly.com/saivalis-brixen/exhale-th-collection-lunch-learn",
+    "description": "Exhale Residences by In2ition. Broker lunch & learn event.",
+    "features": [
+      "Broker Lunch & Learn",
+      "Calendly Registration"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "simcoe-woods",
+    "name": "Simcoe Woods",
+    "developer": "Rosehaven Homes",
+    "location": "Innisfil, ON",
+    "price": "Contact for pricing",
+    "status": "Preview Opening",
+    "type": "Townhome & Detached",
+    "bedrooms": "2-4 Bedrooms",
+    "brokerPortalUrl": "https://broker.rosehavenhomes.com/community/simcoe-woods",
+    "description": "Simcoe Woods by Rosehaven Homes in Innisfil. Preview opening broker event.",
+    "features": [
+      "Preview Opening",
+      "Broker Portal Active",
+      "Rosehaven Quality"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "pier-house-towns",
+    "name": "Pier House Towns - Lakeview Village",
+    "developer": "Branthaven",
+    "location": "Lakeview Village, ON",
+    "price": "Contact for pricing",
+    "status": "Exclusive Broker Launch",
+    "type": "Townhome",
+    "bedrooms": "2-4 Bedrooms",
+    "brokerPortalUrl": "https://calendly.com/invitees/c00aa9b0-dd64-4efc-9a2a-814eafd030=",
+    "description": "Pier House Towns by Branthaven at Lakeview Village. Exclusive broker launch event.",
+    "features": [
+      "Exclusive Broker Launch",
+      "Lakeview Village Community",
+      "Branthaven Quality"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "towns-on-bayview",
+    "name": "Towns on Bayview",
+    "developer": "Primont",
+    "location": "Richmond Hill, ON",
+    "price": "From $1,199,990+",
+    "status": "Now Offering 4% Commission",
+    "type": "Townhome",
+    "bedrooms": "2-3 Bedrooms",
+    "brokerPortalUrl": "",
+    "description": "Towns on Bayview by Primont. Move-in ready homes with 4% co-broke commission.",
+    "features": [
+      "Move-In Ready",
+      "4% Co-Broke Commission",
+      "Richmond Hill Location"
+    ],
+    "commission": "4%",
+    "vipAccess": true,
+    "isNewFromEmail": true
+  },
+  {
+    "id": "appellation-primont",
+    "name": "Appellation",
+    "developer": "Primont",
+    "location": "Ontario, ON",
+    "price": "From $500,000+",
+    "status": "VIP Broker Release",
+    "type": "Townhome & Condo",
+    "bedrooms": "1-3 Bedrooms",
+    "brokerPortalUrl": "",
+    "description": "Appellation by Primont. VIP broker release.",
+    "features": [
+      "VIP Broker Release",
+      "Primont Quality"
+    ],
+    "vipAccess": true,
+    "isNewFromEmail": true
+  }
+]
