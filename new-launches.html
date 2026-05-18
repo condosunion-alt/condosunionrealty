@@ -51,12 +51,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
 .commission-box { background:linear-gradient(135deg,#fff8e1,#fff3e0); border:1px solid #ffe082; border-radius:10px; padding:10px 14px; margin:10px 0; text-align:center; }
 .commission-box .amt { font-size:1.2em; font-weight:800; color:#e65100; }
 .commission-box .label { font-size:0.75em; color:#777; }
-.portal-section { margin-top:14px; display:flex; flex-direction:column; gap:6px; }
-.portal-btn { display:block; width:100%; padding:11px; background:linear-gradient(135deg,#667eea,#764ba2); color:white; border:none; border-radius:9px; text-decoration:none; text-align:center; font-weight:700; font-size:0.88em; cursor:pointer; transition:opacity 0.2s; }
-.portal-btn:hover { opacity:0.88; }
-.portal-btn.green { background:linear-gradient(135deg,#27ae60,#2ecc71); }
-.portal-btn.orange { background:linear-gradient(135deg,#e67e22,#f39c12); }
-.no-portal { margin-top:12px; padding:8px 12px; background:#f5f5f5; border:1px dashed #ccc; border-radius:8px; font-size:0.78em; color:#888; }
 .stats { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
 .stat { background:white; padding:14px 20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.05); flex:1; min-width:120px; text-align:center; }
 .stat .num { font-size:1.6em; font-weight:800; color:#203a43; }
@@ -69,26 +63,25 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
 <body>
 <div class="header">
   <h1>🆕 New Pre-Construction Launches 2025–2026</h1>
-  <p>多伦多及周边最新楼花项目 | 最新佣金政策 | Broker Portal 直通</p>
-  <p class="sub">📧 数据来源：mikebest007@gmail.com 白金邮箱真实开发商邮件 | 6,707封邮件深度挖掘</p>
+  <p>多伦多及周边最新楼花项目 | 最新佣金政策 | </p>
   <div class="badge-row">
     <span class="badge">🏙️ 12 Condos</span>
     <span class="badge">🏡 20 Townhomes</span>
     <span class="badge">🏠 10 Detached</span>
     <span class="badge">🏘️ 11 Community</span>
-    <span class="badge">🔗 29 w/ Portal</span>
+    
     <span class="badge">💰 10 High Commission</span>
   </div>
 </div>
 
 <div class="container">
   <div class="alert">
-    <strong>⚠️ 经纪人/客户注意：</strong> 所有项目信息来源于白金开发商邮件。带 🔗 的项目可直接访问Broker Portal注册。标注佣金的为开发商确认的Co-op Commission。注册登录后可查看完整项目详情和楼层图。
+    <strong>⚠️ 经纪人/客户注意：</strong> 标注佣金的为开发商确认的Co-op Commission。
   </div>
 
   <div class="stats">
     <div class="stat"><div class="num">53</div><div class="lbl">Total Projects</div></div>
-    <div class="stat"><div class="num">29</div><div class="lbl">Broker Portals</div></div>
+    <div class="stat"><div class="num">0</div><div class="lbl">Broker Portals</div></div>
     <div class="stat"><div class="num">10</div><div class="lbl">3%+ Commission</div></div>
     <div class="stat"><div class="num">16</div><div class="lbl">🔥 Hot Picks</div></div>
   </div>
@@ -99,7 +92,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
     <button class="filter-btn" onclick="filter('townhome', this)">🏡 Townhome (20)</button>
     <button class="filter-btn" onclick="filter('detached', this)">🏠 Detached (10)</button>
     <button class="filter-btn" onclick="filter('mixed', this)">🏘️ Community (11)</button>
-    <button class="filter-btn" onclick="filterPortal(this)">🔗 Has Portal (29)</button>
     <button class="filter-btn" onclick="filterCommission(this)">💰 3%+ (10)</button>
     <input class="search-box" placeholder="🔍 Search project, developer, location..." oninput="search(this.value)">
   </div>
@@ -124,8 +116,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span>️ Burlington's next residential hotspot</div>
         <div class="info-row"><span class="icon">�</span> Boutique condos — Modern, livable spaces</div>
         <div class="commission-box"><div class="amt">💸 $123K PRICE DROP</div><div class="label">Latch Developments | Burlington (Uptown)</div></div>
-        <div class="no-portal">⚠️ No online portal<br><small>Contact: hyoung@latch-developments.com</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="m city 1 & 2 rogers/urban nation mississauga" data-commission="high" data-portal="yes">
@@ -147,8 +137,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span>️ Price reductions up to $140,000 CAD</div>
         <div class="info-row"><span class="icon">�</span> Move-In Ready & Pre-Construction</div>
         <div class="commission-box"><div class="amt">4% Commission</div><div class="label">Rogers/Urban Nation | Mississauga</div></div>
-        <div class="portal-section"><a href="http://www.mcitycondos.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="pickering city centre  pickering" data-commission="normal" data-portal="no">
@@ -168,8 +156,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span>️ Construction starting soon</div>
         <div class="info-row"><span class="icon">�</span> Prime Pickering location</div>
         <div class="commission-box"><div class="amt">Construction Starts</div><div class="label"> | Pickering</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="concord canada house concord toronto" data-commission="normal" data-portal="yes">
@@ -190,8 +176,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> $50,000 discount on all units</div>
         <div class="info-row"><span class="icon">�</span> Only 5% deposit required</div>
         <div class="commission-box"><div class="amt">5% Deposit</div><div class="label">Concord | Toronto</div></div>
-        <div class="portal-section"><a href="https://drive.google.com/drive/folders/14XDWApfL-ELiGsz4PuNeFN4LKAOLv4P4" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="station no. 3  gta" data-commission="normal" data-portal="no">
@@ -209,8 +193,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ New pre-construction condo</div>
         
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="anthem at metalworks  gta" data-commission="normal" data-portal="no">
@@ -228,8 +210,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ Pre-construction condo project</div>
         
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="lsq / rare rare gta" data-commission="normal" data-portal="yes">
@@ -244,12 +224,8 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="meta-row">
           <span class="tag blue">Condo</span>
-          <span class="tag purple">Broker Portal</span>
         </div>
-        <div class="info-row"><span class="icon">�</span> Broker Portal available</div>
         
-        <div class="portal-section"><a href="https://ca.blacklineapp.com/lsq2/access/broker" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="uce & the grand  gta" data-commission="normal" data-portal="no">
@@ -267,8 +243,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ Pre-construction condo</div>
         
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="exhale residences  gta" data-commission="normal" data-portal="no">
@@ -286,8 +260,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ New condo project</div>
         
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="creekview collective baker homes gta" data-commission="normal" data-portal="yes">
@@ -308,8 +280,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Exclusive VIP Agent Preview</div>
         <div class="info-row"><span class="icon">�</span> Book your appointment today</div>
         <div class="commission-box"><div class="amt">VIP Agent Preview</div><div class="label">Baker Homes | GTA</div></div>
-        <div class="portal-section"><a href="https://mybaker.baker-re.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="cherry house baker homes downtown east" data-commission="normal" data-portal="yes">
@@ -329,8 +299,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Downtown East location</div>
         <div class="info-row"><span class="icon">�</span> Premium rentals + strong incentives</div>
         <div class="commission-box"><div class="amt">Strong Incentives</div><div class="label">Baker Homes | Downtown East</div></div>
-        <div class="portal-section"><a href="http://www.baker-re.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="condo" data-name="250 lawrence graywood group toronto" data-commission="normal" data-portal="no">
@@ -350,8 +318,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Open House this Saturday</div>
         <div class="info-row"><span class="icon">�</span> Toronto location</div>
         <div class="commission-box"><div class="amt">Open House</div><div class="label">Graywood Group | Toronto</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="ivylea towns  gta" data-commission="high" data-portal="no">
@@ -373,8 +339,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">⚡</span>30-day closings available</div>
         <div class="info-row"><span class="icon">�</span> Open House events</div>
         <div class="commission-box"><div class="amt">3% Commission</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="modtera towns  gta" data-commission="normal" data-portal="no">
@@ -394,8 +358,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Now Accepting Worksheets</div>
         <div class="info-row"><span class="icon">�</span> Submit to secure your clients' spots</div>
         <div class="commission-box"><div class="amt">Accepting Worksheets</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="chateau 9 (charbonnel) charbonnel gta" data-commission="normal" data-portal="yes">
@@ -415,8 +377,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">⏰</span>Worksheet submission deadline today</div>
         <div class="info-row"><span class="icon">�</span> Charbonnel townhome community</div>
         <div class="commission-box"><div class="amt">Worksheet Due</div><div class="label">Charbonnel | GTA</div></div>
-        <div class="portal-section"><a href="https://charbonneltowns.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="flori (charbonnel) charbonnel gta" data-commission="normal" data-portal="yes">
@@ -436,8 +396,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Worksheet submission this Wednesday</div>
         <div class="info-row"><span class="icon">�</span> Charbonnel community</div>
         <div class="commission-box"><div class="amt">Worksheet</div><div class="label">Charbonnel | GTA</div></div>
-        <div class="portal-section"><a href="https://charbonneltowns.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="the winston collection baker re gta" data-commission="normal" data-portal="yes">
@@ -459,8 +417,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> $5,000 Agent Incentive</div>
         <div class="info-row"><span class="icon">�</span> Up to $60K credit on closing</div>
         <div class="commission-box"><div class="amt">$5K Agent Bonus</div><div class="label">Baker RE | GTA</div></div>
-        <div class="portal-section"><a href="https://mybaker.baker-re.com/projects/thewinston" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="ivy rouge phase 3 starlane/rosehaven oakville" data-commission="normal" data-portal="yes">
@@ -482,8 +438,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Oakville community</div>
         <div class="info-row"><span class="icon">�</span> Last chance for VIP Brokers</div>
         <div class="commission-box"><div class="amt">New Release</div><div class="label">Starlane/Rosehaven | Oakville</div></div>
-        <div class="portal-section"><a href="https://broker.rosehavenhomes.com/community/ivy-rouge" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="taywood estates greenpark burlington" data-commission="normal" data-portal="yes">
@@ -505,8 +459,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> In-Law Suite Feature</div>
         <div class="info-row"><span class="icon">�</span> Burlington location</div>
         <div class="commission-box"><div class="amt">$40K Commission</div><div class="label">Greenpark | Burlington</div></div>
-        <div class="portal-section"><a href="https://brokers.greenparkgroup.ca/taywood-estates/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="carousel towns @ thornhill walk liberty development thornhill" data-commission="normal" data-portal="yes">
@@ -527,8 +479,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Bathurst & Rutherford area</div>
         <div class="info-row"><span class="icon">�</span> Portal password: libertyvip</div>
         <div class="commission-box"><div class="amt">VIP Portal</div><div class="label">Liberty Development | Thornhill</div></div>
-        <div class="portal-section"><a href="https://www.libertydevelopment.ca/thornhillwalk-vip" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="towns on bayview  gta" data-commission="normal" data-portal="no">
@@ -547,8 +497,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> Bayview area townhomes</div>
         
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="appellation primont welland" data-commission="high" data-portal="yes">
@@ -569,8 +517,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> 3% Commission</div>
         <div class="info-row"><span class="icon">�</span> Welland location</div>
         <div class="commission-box"><div class="amt">3% Commission</div><div class="label">Primont | Welland</div></div>
-        <div class="portal-section"><a href="https://joeyai.net/primont/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="pier house towns branthaven lakeview village" data-commission="normal" data-portal="yes">
@@ -592,8 +538,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Exclusive Broker Launch event</div>
         <div class="info-row"><span class="icon">�</span> RSVP required via Calendly</div>
         <div class="commission-box"><div class="amt">Exclusive Broker Launch</div><div class="label">Branthaven | Lakeview Village</div></div>
-        <div class="portal-section"><a href="https://calendly.com/pierhousesales-branthaven/pier-house-towns-broker-info" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="carding house towns  gta" data-commission="normal" data-portal="no">
@@ -611,8 +555,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> Townhome community</div>
         
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="metroside towns graywood group gta" data-commission="normal" data-portal="no">
@@ -633,8 +575,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">⏰</span>Final townhome opportunity</div>
         <div class="info-row"><span class="icon">�</span> Over 1,600 sq. ft. with parking</div>
         <div class="commission-box"><div class="amt">Final Opportunity</div><div class="label">Graywood Group | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="seatonville phase 2 opus homes pickering" data-commission="normal" data-portal="yes">
@@ -656,8 +596,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Pickering location</div>
         <div class="info-row"><span class="icon">�</span>️ Townhomes & Detached</div>
         <div class="commission-box"><div class="amt">Phase 2</div><div class="label">Opus Homes | Pickering</div></div>
-        <div class="portal-section"><a href="https://www.opushomes.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="skylands townhome times group gta" data-commission="normal" data-portal="no">
@@ -676,8 +614,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ New townhome by Times Group</div>
         <div class="commission-box"><div class="amt">New Launch</div><div class="label">Times Group | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="the gateway of lindsay  lindsay" data-commission="normal" data-portal="yes">
@@ -699,8 +635,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Only $10,000 Down!</div>
         <div class="info-row"><span class="icon">�</span> Award-winning design</div>
         <div class="commission-box"><div class="amt">Award-Winning</div><div class="label"> | Lindsay</div></div>
-        <div class="portal-section"><a href="https://gatewaylindsay.ca/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="double kitchens  gta" data-commission="high" data-portal="no">
@@ -721,8 +655,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Double Kitchens with Separate Entrances</div>
         <div class="info-row"><span class="icon">�</span> 3% Commission for agents</div>
         <div class="commission-box"><div class="amt">3% Commission</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="oakville freehold towns  oakville" data-commission="normal" data-portal="no">
@@ -742,8 +674,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ Oakville Freehold Towns Sales Event</div>
         <div class="commission-box"><div class="amt">Sales Event</div><div class="label"> | Oakville</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="angus glen luxury  unionville" data-commission="normal" data-portal="no">
@@ -762,8 +692,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> Luxury townhome overlooking Angus Glen</div>
         <div class="commission-box"><div class="amt">Luxury</div><div class="label"> | Unionville</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="townhome" data-name="primont richmond hill primont richmond hill" data-commission="high" data-portal="yes">
@@ -785,8 +713,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Move-In Ready homes</div>
         <div class="info-row"><span class="icon">�</span> Richmond Hill</div>
         <div class="commission-box"><div class="amt">4% Commission</div><div class="label">Primont | Richmond Hill</div></div>
-        <div class="portal-section"><a href="https://joeyai.net/primont/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="new seaton aspen ridge/zavala pickering" data-commission="high" data-portal="no">
@@ -808,8 +734,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span>️ Price Guarantee: If prices drop, your client benefits!</div>
         <div class="info-row"><span class="icon">�</span> Closings start Spring 2027</div>
         <div class="commission-box"><div class="amt">3% Commission</div><div class="label">Aspen Ridge/Zavala | Pickering</div></div>
-        <div class="no-portal">⚠️ No online portal<br><small>Contact: VLee@aspenridgehomes.com</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="ellis lane phase 2 poetry living caledon" data-commission="normal" data-portal="yes">
@@ -831,8 +755,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> From the low $1 millions</div>
         <div class="info-row"><span class="icon">�</span> Now Accepting Worksheets!</div>
         <div class="commission-box"><div class="amt">Accepting Worksheets</div><div class="label">Poetry Living | Caledon</div></div>
-        <div class="portal-section"><a href="https://poetryliving.com/communities/ellis-lane/ellis-lane-phase-2/broker-portal/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="bondhead community bondhead bradford" data-commission="normal" data-portal="yes">
@@ -854,8 +776,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> From $1.2 Millions</div>
         <div class="info-row"><span class="icon">�</span> Bradford community</div>
         <div class="commission-box"><div class="amt">42'-50' Lots</div><div class="label">Bondhead | Bradford</div></div>
-        <div class="portal-section"><a href="https://bondhead.com/community" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="east preserve remington homes ontario" data-commission="normal" data-portal="yes">
@@ -875,8 +795,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span>️ Exclusive Townhomes & Detached Homes</div>
         <div class="commission-box"><div class="amt">2% Commission</div><div class="label">Remington Homes | Ontario</div></div>
-        <div class="portal-section"><a href="https://www.remingtongroupinc.com/remington-homes/east-preserve/broker-portal/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="south barrie remington homes barrie" data-commission="normal" data-portal="yes">
@@ -897,8 +815,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> 2% Commission</div>
         <div class="info-row"><span class="icon">�</span> Best-selling community in South Barrie</div>
         <div class="commission-box"><div class="amt">2% Commission</div><div class="label">Remington Homes | Barrie</div></div>
-        <div class="portal-section"><a href="https://www.remingtongroupinc.com/remington-homes/south-barrie/sb-broker-portal/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="juniper gate remington homes ontario" data-commission="normal" data-portal="yes">
@@ -920,8 +836,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> 2% Commission</div>
         <div class="info-row"><span class="icon">�</span>️ Construction starting soon</div>
         <div class="commission-box"><div class="amt">2% Commission</div><div class="label">Remington Homes | Ontario</div></div>
-        <div class="portal-section"><a href="https://www.remingtongroupinc.com/remington-homes/juniper-gate/broker-portal/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="simcoe woods rosehaven gta" data-commission="normal" data-portal="yes">
@@ -936,12 +850,9 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="meta-row">
           <span class="tag blue">Rosehaven</span>
-          <span class="tag purple">Broker Portal</span>
         </div>
         <div class="info-row"><span class="icon">�</span> Rosehaven community</div>
         
-        <div class="portal-section"><a href="https://broker.rosehavenhomes.com/community/simcoe-woods" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="rosehaven vvip inventory rosehaven gta" data-commission="normal" data-portal="yes">
@@ -962,8 +873,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> $500,000 discount on inventory homes</div>
         <div class="info-row"><span class="icon">�</span> VVIP Broker invitation</div>
         <div class="commission-box"><div class="amt">VVIP Broker</div><div class="label">Rosehaven | GTA</div></div>
-        <div class="portal-section"><a href="https://www.rosehavenhomes.com/inventory-homes/broker/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="semi-detached (great gulf) great gulf gta" data-commission="normal" data-portal="yes">
@@ -983,8 +892,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Semi-detached from $2,800/month</div>
         <div class="info-row"><span class="icon">�</span> New homeowner perks: GST Rebate & Green Mortgage</div>
         <div class="commission-box"><div class="amt">Affordable</div><div class="label">Great Gulf | GTA</div></div>
-        <div class="portal-section"><a href="http://greatgulf-2848452.hs-sites.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="detached" data-name="the gateway bungalow  lindsay" data-commission="normal" data-portal="yes">
@@ -1005,8 +912,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Award-winning bungalow living</div>
         <div class="info-row"><span class="icon">�</span> From $579,990</div>
         <div class="commission-box"><div class="amt">Award-Winning Bungalow</div><div class="label"> | Lindsay</div></div>
-        <div class="portal-section"><a href="https://gatewaylindsay.ca/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="unionglen pma brethour gta" data-commission="high" data-portal="no">
@@ -1028,8 +933,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Detached from the $900's</div>
         <div class="info-row"><span class="icon">�</span> 3% Broker Commission</div>
         <div class="commission-box"><div class="amt">3% Commission</div><div class="label">PMA Brethour | GTA</div></div>
-        <div class="no-portal">⚠️ No online portal<br><small>Contact: pmabrethour.com</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="mapleside meadows uniq communities vaughan" data-commission="normal" data-portal="yes">
@@ -1050,8 +953,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span>‍👩‍👧‍👦 Family-friendly neighbourhood in Vaughan</div>
         <div class="info-row"><span class="icon">�</span>️ Townhomes & Detached options</div>
         <div class="commission-box"><div class="amt">Family-Friendly</div><div class="label">Uniq Communities | Vaughan</div></div>
-        <div class="portal-section"><a href="https://uniqcommunities.com/new-homes/vaughan/mapleside-meadows/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="abeja district  gta" data-commission="high" data-portal="no">
@@ -1073,8 +974,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Move-in ready suites</div>
         <div class="info-row"><span class="icon">�</span> Prime location</div>
         <div class="commission-box"><div class="amt">3% Commission</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="minto overthrow 2b minto gta" data-commission="normal" data-portal="yes">
@@ -1094,8 +993,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> Broker Portal: earlyaccess2025</div>
         <div class="info-row"><span class="icon">�</span> Minto community</div>
         <div class="commission-box"><div class="amt">Portal PW: earlyaccess2025</div><div class="label">Minto | GTA</div></div>
-        <div class="portal-section"><a href="https://go.mintousa.com/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="south lake  gta" data-commission="normal" data-portal="no">
@@ -1114,8 +1011,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> Grand Opening October 4th</div>
         <div class="commission-box"><div class="amt">Grand Opening</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="the willows  gta" data-commission="normal" data-portal="no">
@@ -1134,8 +1029,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> Exclusive Broker Event February 10th</div>
         <div class="commission-box"><div class="amt">Exclusive Broker Event</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="summit blue mountain primont blue mountain" data-commission="high" data-portal="yes">
@@ -1156,8 +1049,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> 5% Commission — Limited time!</div>
         <div class="info-row"><span class="icon">�</span>️ Blue Mountain resort location</div>
         <div class="commission-box"><div class="amt">5% Commission</div><div class="label">Primont | Blue Mountain</div></div>
-        <div class="portal-section"><a href="https://joeyai.net/primont/" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="rds new release rds real estate gta" data-commission="high" data-portal="yes">
@@ -1179,8 +1070,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> From $587,000</div>
         <div class="info-row"><span class="icon">�</span> New release event</div>
         <div class="commission-box"><div class="amt">6% Commission</div><div class="label">RDS Real Estate | GTA</div></div>
-        <div class="portal-section"><a href="https://portal.rdsre.ca/book/101newreleasesept23rd" target="_blank" class="portal-btn green">🔗 Broker Portal / Project Page →</a></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="2.5% commission inventory  gta" data-commission="normal" data-portal="no">
@@ -1200,8 +1089,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         <div class="info-row"><span class="icon">�</span> 2.5% Commission</div>
         <div class="info-row"><span class="icon">�</span> Exceptional value inventory homes</div>
         <div class="commission-box"><div class="amt">2.5% Commission</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="the art of living  gta" data-commission="normal" data-portal="no">
@@ -1220,8 +1107,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> VIP Event invitation</div>
         <div class="commission-box"><div class="amt">VIP Event</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
 
     <div class="card" data-type="mixed" data-name="exclusive broker release  gta" data-commission="normal" data-portal="no">
@@ -1240,8 +1125,6 @@ body { font-family:'Segoe UI',Arial,sans-serif; background:#f0f2f5; color:#222; 
         </div>
         <div class="info-row"><span class="icon">�</span> Exclusive Broker Release February 3rd</div>
         <div class="commission-box"><div class="amt">Save The Date</div><div class="label"> | GTA</div></div>
-        <div class="no-portal">⚠️ No online broker portal available<br><small>Contact developer directly for access</small></div>
-      </div>
     </div>
   </div>
 </div>
@@ -1259,7 +1142,6 @@ function filter(type, btn) {
     card.classList.toggle('hidden', card.getAttribute('data-type') !== type);
   });
 }
-function filterPortal(btn) {
   document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
   document.querySelectorAll('.card').forEach(function(card) {
