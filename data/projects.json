@@ -2230,5 +2230,84 @@
     "description": "Carding House Towns",
     "features": [],
     "vipAccess": false
+  },
+  {
+    "id": "avella-aurora",
+    "name": "Avella",
+    "developer": "Treasure Hill",
+    "location": "Aurora, ON",
+    "price": "Register for VIP Pricing",
+    "priceValue": 0,
+    "status": "Platinum Launch",
+    "type": "2-Car Garage Homes",
+    "bedrooms": "Up to 5 Bedrooms",
+    "bathrooms": "2.5-4 Bathrooms",
+    "sqft": "2500-4000 sqft (est.)",
+    "completionDate": "2028-2029",
+    "depositStructure": "TBD - Contact for details",
+    "maintenanceFee": "N/A - Freehold",
+    "renderImage": "images/projects/avella-rendering.png",
+    "floorPlans": [
+      {
+        "name": "Floor Plans",
+        "file": "projects/avella/pdf/Floorplans.pdf"
+      }
+    ],
+    "brokerPortalUrl": "https://broker.treasurehill.com/community/avella",
+    "description": "Luxury 2-car garage homes in Aurora with up to 5 bedrooms. Premium location in York Region with easy access to Hwy 404 and GO Transit.",
+    "features": [
+      "2-Car Garage Standard",
+      "Up to 5 Bedrooms",
+      "Premium Aurora Location",
+      "Close to Hwy 404",
+      "GO Transit Access",
+      "York Region Schools",
+      "Luxury Finishes Throughout",
+      "Treasure Hill Quality"
+    ],
+    "vipAccess": true,
+    "brokerCommission": "Contact for details",
+    "documents": [
+      {
+        "name": "Price List",
+        "file": "projects/avella/pdf/Price-List.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Floor Plans",
+        "file": "projects/avella/pdf/Floorplans.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Site Plan",
+        "file": "projects/avella/pdf/Site-Plan.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Fast Facts",
+        "file": "projects/avella/pdf/Fast-Facts.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Bonus Incentives",
+        "file": "projects/avella/pdf/Bonus-Incentives.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Agent Worksheet",
+        "file": "projects/avella/pdf/Agent-Worksheet.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Amenities Map",
+        "file": "projects/avella/images/Amenities-Map.png",
+        "type": "image"
+      },
+      {
+        "name": "Rendering",
+        "file": "projects/avella/images/Rendering.png",
+        "type": "image"
+      }
+    ]
   }
 ]
